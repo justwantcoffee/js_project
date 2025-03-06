@@ -6,7 +6,7 @@ import Offers from './Offers';
 import About from './About';
 import Contacts from './Contacts';
 
-import '../../styles/homepage.css';
+import styles from '../../styles/homepage.module.css';
 
 const HomePage = () => {
   return (
