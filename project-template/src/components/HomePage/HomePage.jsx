@@ -13,9 +13,11 @@ const HomePage = () => {
     <div>
       <h1>Главная страница</h1>
       <Header />
-      <Banner />
+      <div className={styles.mainScreen}>
+        <Banner />
+        <Offers />
+      </div>
       <Services />
-      <Offers />
       <About />
       <Contacts />
     </div>

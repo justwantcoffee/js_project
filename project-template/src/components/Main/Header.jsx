@@ -14,7 +14,7 @@ const Header = () => {
                 <a className={styles.button} href="">Purchase</a>
                 <a className={styles.button} href="">New buildings</a>
                 <a className={styles.button} href="">Realtors</a>
-                <a className='header_button--img' href=""><img src="../../static/img/icons/profile.svg" width="20px" height="20px" alt="профиль" /></a>
+                <a className='header_button--img' href=""><img src="../../../static/img/icons/profile.svg" width="20px" height="20px" alt="профиль" /></a>
             </div>
         </div>
     );

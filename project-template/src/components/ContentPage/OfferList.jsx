@@ -7,6 +7,8 @@ const OfferList = () => {
       <h2>Список предложений</h2>
       {/* Здесь можно отрендерить несколько карточек */}
       <ObjectCard />
+      <ObjectCard />
+      <ObjectCard />
     </div>
   );
 };

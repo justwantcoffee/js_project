@@ -1,8 +1,29 @@
 .card {
-    background: linear-gradient(163.8deg, rgba(255, 255, 255, 0.35) 7.91%, rgba(255, 255, 255, 0.7) 94.94%);
-    width: 586px;
+    width: 546px;
+    height: auto;
+
     padding: 35px 20px;
+    margin: 0px 120px 0px 0px;
     border-radius: 12px;
+
+    backdrop-filter: blur(40px);
+    box-shadow: 6px 6px 15px 0px rgba(90, 137, 127, 0.25);
+    background: linear-gradient(163.8deg, rgba(255, 255, 255, 0.35) 7.91%, rgba(255, 255, 255, 0.7) 94.94%);
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+    z-index: -1;            
+    inset: 0;
+
+    padding: 1px;           
+    border-radius: 12px;    
+
+    background: linear-gradient(359deg, rgba(0, 0, 0, 0.2) 12.76%, #FFFFFF 97.75%);
+    mask: 
+        linear-gradient(#000 0 0) exclude, 
+        linear-gradient(#000 0 0) content-box;
 }
 
 .header {
@@ -12,9 +33,9 @@
 
     font-weight: 500;
     font-size: 32px;
-    line-height: 42px;
+    line-height: 1.3em;
 
-    margin: 0px;
+    margin: 0px
 }
 
 .header--green {
@@ -24,9 +45,9 @@
 
     font-weight: 500;
     font-size: 24px;
-    line-height: 32px;
+    line-height: 1.33em;
 
-    margin: 0px 0px 70px 0px;
+    margin: 6px 0px 60px 0px;
 }
 
 .img {

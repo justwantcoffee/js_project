@@ -1,0 +1,55 @@
+.card {
+    width: 320px;
+    padding: 14px 12px 12px 12px;
+    margin: 22px 18px;
+
+    border-radius: 12px;
+
+    background: linear-gradient(116.88deg, rgba(255, 255, 255, 0.25) 13.56%, rgba(255, 255, 255, 0.5) 90.37%);
+    backdrop-filter: blur(40px);
+
+    box-shadow: 6px 6px 15px 0px rgba(90, 137, 127, 0.25);
+}
+
+.header {
+    font-family: Playfair Display, serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+
+    padding: 0px 0px 18px 0px;
+    margin: 0px;
+}
+
+.description {
+    font-family: Playfair Display, serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+
+    padding: 0px 0px 10px 0px;
+}
+
+.description--metro {
+    margin: 0px 40px 0px 0px;
+}
+
+.description--time {
+    margin: 0px;
+}
+
+.objectImg {
+    width: 320px;
+    height: 160px;
+    border-radius: 12px;
+
+    display: flex;
+    background-color: rgb(64, 72, 72);
+}
+
+.price {
+    font-family: Playfair Display, serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+}
