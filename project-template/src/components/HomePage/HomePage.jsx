@@ -1,8 +1,10 @@
 import React from 'react';
 import Header from '../Main/Header';
+import Footer from '../Main/Footer';
+
 import Banner from './Banner';
-import Services from './Services';
 import Offers from './Offers';
+import Services from './Services';
 import About from './About';
 import Contacts from './Contacts';
 
@@ -11,15 +13,14 @@ import styles from '../../styles/homepage.module.css';
 const HomePage = () => {
   return (
     <div>
-      <h1>Главная страница</h1>
+      <div className={styles.mainpage}>
       <Header />
-      <div className={styles.mainScreen}>
+      <div className={styles.content}>
         <Banner />
         <Offers />
       </div>
-      <Services />
-      <About />
-      <Contacts />
+      </div>
+      <Footer />
     </div>
   );
 };

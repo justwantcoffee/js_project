@@ -1,19 +1,21 @@
 body {
     background-image: url("../../static/img/background.png");
+    margin: 0px;
 }
 
 @media (max-width: 1920px) {
-    body {
-        padding: 150px;
+    .mainpage {
+        padding: 120px;
     }
 }
 
 @media (max-width: 1200px) {
-    body {
+    .mainpage {
         padding: 80px;
     }
 }
 
-.main_screen {
-    display: inline-flex;
+.content {
+    display: flex;
+    flex-wrap: wrap;
 }

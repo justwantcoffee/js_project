@@ -1,11 +1,12 @@
 import React from 'react';
 import ObjectCard from './ObjectCard';
 
+import styles from '../../../src/styles/offerlist.module.css'
+
 const OfferList = () => {
   return (
-    <div>
-      <h2>Список предложений</h2>
-      {/* Здесь можно отрендерить несколько карточек */}
+    <div className={styles.cardsWrapper}>
+      {/* рендер карточек */}
       <ObjectCard />
       <ObjectCard />
       <ObjectCard />

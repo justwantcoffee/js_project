@@ -1,13 +1,11 @@
 .card {
-    width: 320px;
     padding: 14px 12px 12px 12px;
-    margin: 22px 18px;
+    margin: 0px 18px 22px 0px;
 
     border-radius: 12px;
 
     background: linear-gradient(116.88deg, rgba(255, 255, 255, 0.25) 13.56%, rgba(255, 255, 255, 0.5) 90.37%);
     backdrop-filter: blur(40px);
-
     box-shadow: 6px 6px 15px 0px rgba(90, 137, 127, 0.25);
 }
 
@@ -39,11 +37,11 @@
 }
 
 .objectImg {
-    width: 320px;
+    width: 312px;
     height: 160px;
     border-radius: 12px;
 
-    display: flex;
+    display: block;
     background-color: rgb(64, 72, 72);
 }
 

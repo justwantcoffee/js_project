@@ -1,11 +1,14 @@
+.offers {
+    max-width: 708px;
+}
+
 .header {
+    margin: 0px 0px 20px 0px;
+
     font-family: Playfair Display, serif;
     font-weight: 500;
     font-size: 24px;
     line-height: 100%;
-
-    margin: 0px 0px 20px 0px;
-    
 }
 
 .button {
@@ -35,3 +38,4 @@
 
     background-color: rgb(114, 127, 122);
 }
+
