@@ -1,7 +1,6 @@
 import React from 'react';
 import OfferList from '../ContentPage/OfferList';
-
-import styles from '../../styles/offers.module.css'
+import styles from '../../styles/offers.module.css';
 
 const Offers = () => {
   return (<div className={styles.offers}>
