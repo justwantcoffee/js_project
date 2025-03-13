@@ -28,7 +28,19 @@
     padding: 0px 0px 10px 0px;
 }
 
-.description--metro {
+.descriptionСolor {
+    display: inline-block;
+    margin: 0px 8px 2px 0px;
+
+    width: 1px;
+    height: 1px;
+    padding: 2.4px;
+    border-radius: 10px;
+
+    background-color: brown;
+}
+
+.description--underground {
     margin: 0px 40px 0px 0px;
 }
 

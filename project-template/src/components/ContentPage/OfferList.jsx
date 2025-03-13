@@ -10,6 +10,7 @@ const OfferList = () => {
 
       <ObjectCard 
         header="Matveevsky park"
+        color=""
         underground="Amin’evskaya"
         time="3 min"
         img=""
@@ -18,6 +19,7 @@ const OfferList = () => {
 
       <ObjectCard 
         header="Tomilinsky Bul'var"
+        color=""
         underground="Kotel’niki"
         time="20 min"
         img=""
@@ -26,6 +28,7 @@ const OfferList = () => {
 
       <ObjectCard 
         header="Bol'shaya Akademisheskaya"
+        color=""
         underground="MCK/Lihobory"
         time="11 min"
         img=""
@@ -34,6 +37,7 @@ const OfferList = () => {
 
       <ObjectCard 
         header="Vostochnoe Butovo"
+        color=""
         underground="Bul’var Dmitrya Donskogo"
         time="15 min"
         img=""
