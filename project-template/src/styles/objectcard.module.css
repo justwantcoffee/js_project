@@ -20,6 +20,10 @@
 }
 
 .description {
+    display: flex;
+    align-items: center;
+
+
     font-family: Playfair Display, serif;
     font-weight: 400;
     font-size: 16px;
@@ -28,20 +32,23 @@
     padding: 0px 0px 10px 0px;
 }
 
-.descriptionСolor {
-    display: inline-block;
-    margin: 0px 8px 2px 0px;
+.description--dot-color {
+    margin-right: 8px;
 
     width: 1px;
     height: 1px;
     padding: 2.4px;
     border-radius: 10px;
 
-    background-color: brown;
+    background-color: var(--background);
 }
 
 .description--underground {
-    margin: 0px 40px 0px 0px;
+    margin-right: 40px;
+}
+
+.description--person-icon {
+    margin-right: 12px;
 }
 
 .description--time {

@@ -49,6 +49,10 @@ const webpackConfig = (env, argv) => {
           },
         },
         {
+          test: /\.(png|jp(e*)g|svg|gif)$/,
+          type: "asset/resource",
+        },
+        {
           test: /\.(sa|sc|c)ss$/,
           use: [
             isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
