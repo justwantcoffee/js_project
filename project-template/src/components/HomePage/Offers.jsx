@@ -1,5 +1,7 @@
 import React from 'react';
 import OfferList from '../ContentPage/OfferList';
+import Filters from '../ContentPage/Filters.jsx';
+
 import styles from '../../styles/offers.module.css';
 
 const Offers = () => {
@@ -8,10 +10,9 @@ const Offers = () => {
       <div className={styles.dropdown}>
           <button onClick="" className={styles.button}>Filters</button>
       </div>
-      <div className={styles.underline}></div>
-      <div className={styles.content}>
-        <OfferList />
-      </div>
+      <Filters />
+      <hr className={styles.underline}/>
+      <OfferList />
     </div>
     );
 };
