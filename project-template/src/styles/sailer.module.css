@@ -1,0 +1,13 @@
+.sailer {
+  margin: 45px;
+}
+.container {
+  max-width: 1428px;
+  margin: 0 auto;
+}
+.cards {
+  display: grid;
+  grid-template-columns: 345px 345px 1fr;
+  padding: 157px 0 50px 0;
+  gap: 16px;
+}

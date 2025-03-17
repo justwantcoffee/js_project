@@ -7,6 +7,7 @@ import LandlordCabinet from './components/UserCabinet/LandlordCabinet';
 import AdminCabinet from './components/UserCabinet/AdminCabinet';
 import Login from './components/Auth/Login';
 import Registration from './components/Auth/Registration';
+import { Sailer } from './components/Sailer/Sailer';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/cabinet/client" element={<ClientCabinet />} />
         <Route path="/cabinet/landlord" element={<LandlordCabinet />} />
         <Route path="/cabinet/admin" element={<AdminCabinet />} />
+        <Route path="/sailer" element={<Sailer />} />
       </Routes>
     </Router>
   );

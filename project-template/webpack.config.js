@@ -30,7 +30,7 @@ const webpackConfig = (env, argv) => {
       }),
       isDevelopment && new ReactRefreshWebpackPlugin(),
       !isDevelopment && new MiniCssExtractPlugin({}),
-    ],
+    ].filter(Boolean),
     module: {
       rules: [
         {
@@ -56,11 +56,6 @@ const webpackConfig = (env, argv) => {
               loader: 'css-loader',
               options: {
                 importLoaders: 2,
-                url: {
-                  filter: function (url) {
-                    return !url.startsWith(`/`);
-                  },
-                },
                 modules: {
                   auto: true,
                   namedExport: false,
@@ -80,6 +75,13 @@ const webpackConfig = (env, argv) => {
             },
             'sass-loader',
           ],
+        },
+        {
+          test: /\.(png|jpg|jpeg|gif|svg)$/,
+          type: 'asset/resource',
+          generator: {
+            filename: 'static/img/[name].[hash:8][ext]',
+          },
         },
       ],
     },

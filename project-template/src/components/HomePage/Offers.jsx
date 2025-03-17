@@ -133,7 +133,7 @@ const Offers = () => {
           />
         )}
       </div>
-      <div className={styles.underline}></div>
+      <hr className={styles.underline}/>
       <div className={styles.content}>
         <OfferList offers={filteredOffers} />
       </div>
