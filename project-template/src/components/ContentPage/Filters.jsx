@@ -61,6 +61,18 @@ const Filters = ({ filters = {}, onApply, visible }) => {
     setDropdownOpen(false);
   };
 
+  const PRICE_TYPES = {
+    Object: 'object',
+    KM2: 'km2',
+    Mortgage: 'mortgage',
+  }
+
+  const priceButtons = [
+    { label: "For the object", value: PRICE_TYPES.Object },
+    { label: "For km²", value: PRICE_TYPES.KM2 },
+    { label: "Mortgage", value: PRICE_TYPES.Mortgage },
+  ];
+
   return (
     <div className={styles.filters}>
       {/* Тип бизнеса */}
@@ -130,42 +142,17 @@ const Filters = ({ filters = {}, onApply, visible }) => {
       <div className={styles.filterRow}>
         <label>Price</label>
         <div className={styles.toggleGroup}>
+          {priceButtons.map(({ label, value }) => (
           <button
-            className={localFilters.priceType === "object" ? styles.active : ""}
-            onClick={() => handleToggle("priceType", "object")}
+            key={value}
+            className={localFilters.priceType === value ? styles.active : ""}
+            onClick={() => handleToggle("priceType", value)}
           >
-            For the object
+            {label}
           </button>
-          <button
-            className={localFilters.priceType === "km2" ? styles.active : ""}
-            onClick={() => handleToggle("priceType", "km2")}
-          >
-            For km²
-          </button>
-          <button
-            className={localFilters.priceType === "mortgage" ? styles.active : ""}
-            onClick={() => handleToggle("priceType", "mortgage")}
-          >
-            Mortgage
-          </button>
-        </div>
-        <div className={styles.rangeGroup}>
-          <input
-            type="number"
-            name="priceFrom"
-            placeholder="Starting at"
-            value={localFilters.priceFrom || ""}
-            onChange={handleInputChange}
-          />
-          <input
-            type="number"
-            name="priceTo"
-            placeholder="Up to"
-            value={localFilters.priceTo || ""}
-            onChange={handleInputChange}
-          />
-        </div>
+    ))}
       </div>
+    </div>
 
       {/* Общая площадь (Total area) */}
       <div className={styles.filterRow}>
@@ -216,4 +203,3 @@ const Filters = ({ filters = {}, onApply, visible }) => {
 };
 
 export default Filters;
-
