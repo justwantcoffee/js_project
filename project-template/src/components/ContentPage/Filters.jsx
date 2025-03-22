@@ -75,9 +75,10 @@ const Filters = ({ filters = {}, onApply, visible }) => {
 
   return (
     <div className={styles.filters}>
+      
       {/* Тип бизнеса */}
       <div className={styles.filterRow}>
-        <label>Type of Business</label>
+        <label className={styles.filterLabel}>Type of Business</label>
         <div className={styles.toggleGroup}>
           <button
             className={localFilters.businessType === "buy" ? styles.active : ""}
@@ -96,7 +97,7 @@ const Filters = ({ filters = {}, onApply, visible }) => {
 
       {/* Тип недвижимости */}
       <div className={styles.filterRow}>
-        <label>Type of Real Estate</label>
+        <label className={styles.filterLabel}>Type of Real Estate</label>
         <div className={styles.dropdownContainer} ref={dropdownRef}>
           <button
             className={styles.dropdownButton}
@@ -124,7 +125,7 @@ const Filters = ({ filters = {}, onApply, visible }) => {
 
       {/* Количество комнат */}
       <div className={styles.filterRow}>
-        <label>Amount of rooms</label>
+        <label className={styles.filterLabel}>Amount of rooms</label>
         <div className={styles.toggleGroup}>
           {["Studio", "1", "2", "3", "4"].map((room) => (
             <button
@@ -140,7 +141,7 @@ const Filters = ({ filters = {}, onApply, visible }) => {
 
       {/* Цена */}
       <div className={styles.filterRow}>
-        <label>Price</label>
+        <label className={styles.filterLabel}>Price</label>
         <div className={styles.toggleGroup}>
           {priceButtons.map(({ label, value }) => (
           <button
@@ -156,7 +157,7 @@ const Filters = ({ filters = {}, onApply, visible }) => {
 
       {/* Общая площадь (Total area) */}
       <div className={styles.filterRow}>
-        <label>Total area</label>
+        <label className={styles.filterLabel}>Total area</label>
         <div className={styles.rangeGroup}>
           <input
             type="number"
@@ -178,7 +179,7 @@ const Filters = ({ filters = {}, onApply, visible }) => {
 
       {/* Площадь кухни (Kitchen area) */}
       <div className={styles.filterRow}>
-        <label>Kitchen Area</label>
+        <label className={styles.filterLabel}>Kitchen Area</label>
         <div className={styles.toggleGroup}>
           {[6, 7, 8, 9, 10, 12, 15].map((size) => (
             <button

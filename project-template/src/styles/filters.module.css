@@ -6,81 +6,90 @@
     width: 735px;
     height: 735px;
     padding: 15px;
+
     background: radial-gradient(100% 100% at 21.8% 0%, rgba(73, 125, 116, 0.2) 0%, rgba(73, 125, 116, 0.4) 100%);
     box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(20px);
+
     border: 1px solid;
     border-image-source: linear-gradient(180deg, #FFFFFF -10.75%, #000000 79.18%);
     border-radius: 0px 0px 12px 12px;
+
     z-index: 10; 
   }
-  
-  .filterSection {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  .filterLabel {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    color: #525756;
-  }
-  
-  .businessType {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 402px;
-    height: 41px;
-    border: 1px solid #000;
-    border-radius: 12px;
-  }
-  
-  .button {
-    flex: 1;
-    height: 100%;
-    border: 1px solid #000;
-    border-radius: 12px;
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    color: #000;
-    background: transparent;
-    cursor: pointer;
-  }
-  
-  .button.active {
-    background: #497d74;
-    color: white;
-  }
-  
-  .applyButton {
-    width: 100%;
-    height: 41px;
-    border: none;
-    border-radius: 12px;
-    background: #497d74;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 15px;
-  }
 
-  .filterRow {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
+.filterRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+  
+.filterLabel {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: #525756;
+}
 
-  .filterLabel {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    color: #525756;
-  }
+.toggleGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.toggleGroup button {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.toggleGroup button.active {
+  color: white;
+  background: rgba(39, 68, 93, 1);
+}
+
+.businessType {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 402px;
+  height: 41px;
+  border: 1px solid #000;
+  border-radius: 12px;
+}
+
+.button {
+  flex: 1;
+  height: 100%;
+  border: 1px solid #000;
+  border-radius: 12px;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: #000;
+  background: transparent;
+  cursor: pointer;
+}
+
+.button.active {
+  background: #497d74;
+  color: white;
+}
+
+.applyButton {
+  width: 100%;
+  height: 41px;
+  border: none;
+  border-radius: 12px;
+  background: #497d74;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+}
 
 .filterSlider {
   display: flex;
@@ -89,37 +98,15 @@
   align-items: flex-start;
   padding: 0px;
   gap: 48px;
-  
+
   width: 641px;
   height: 27px;
-  
-  
-  /* Inside auto layout */
+
+/* Inside auto layout */
   flex: none;
   order: 1;
   align-self: stretch;
   flex-grow: 0;
-}
-
-  .toggleGroup {
-    display: flex;
-    gap: 10px;
-}
-
-.toggleGroup button {
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid black;
-    border-radius: 12px;
-    background: transparent;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out;
-}
-
-.toggleGroup button.active {
-    background: rgba(39, 68, 93, 1);
-    color: white;
 }
 
 select {
