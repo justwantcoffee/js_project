@@ -1,0 +1,239 @@
+.container {
+    font-family: 'Playfair Display', serif;
+    
+    display: flex;
+    max-width: 980px;
+    padding: 30px;
+    margin: auto;
+}
+
+.login {
+    padding: 42px 20px 24px;
+    max-width: 590px;
+    width: 60%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    background: 
+        radial-gradient(93.3% 169.73% at 18.2% 11.38%, 
+        rgba(39, 68, 93, 0.1) 0%, 
+        rgba(39, 68, 93, 0.3) 100%);
+
+    backdrop-filter: blur(20px);
+    border-radius: 15px 0px 0px 15px;
+}
+
+.logo {
+    display: flex;
+    padding: 10px 12px 14px 12px;
+    margin-bottom: 42px;
+
+    font-weight: 500;
+    font-size: 82px;
+    
+    border-radius: 12px;
+    color: #000000;
+
+    background: 
+        linear-gradient(133.46deg, 
+        rgba(255, 255, 255, 0.24) 15.95%, 
+        rgba(255, 255, 255, 0.55) 100.75%);
+
+    box-shadow: 3px 3px 10px rgba(39, 68, 93, 0.25);
+    backdrop-filter: blur(20px);
+}
+
+.logo:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;    /* наслоение по z */
+    padding: 1px;   /* толщина рамки */
+    border-radius: 10px;
+
+    background: 
+        linear-gradient(340deg, 
+        #000000 12.76%, 
+        #ffffff 97.75%);
+    mask:
+        linear-gradient(#000 0 0) exclude,
+        linear-gradient(#000 0 0) content-box;
+}
+
+.header {
+    font-weight: 500;
+    font-size: 32px;
+
+    color: #000000;
+}
+
+.desc {
+    margin-bottom: 24px;
+    font-weight: 500;
+    font-size: 20px;
+
+    color: #497D74;
+}
+
+.input {
+    display: flex;
+    min-width: 340px;
+    margin-bottom: 8px;
+    padding: 12px 16px;
+
+    background: rgba(230, 235, 240, 0.5);
+    border: 1px solid #798C91;
+    border-radius: 15px;
+
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+
+    color: #4B6474;
+}
+
+.login__forgot-password {
+    display: flex;
+    margin-bottom: 42px;
+    padding-left: 4px;
+
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration-line: underline;
+
+    opacity: 0.8;
+    color: #35696a;
+}
+
+.button {
+    width: 260px;
+    padding: 10px 10px 12px 10px;
+    margin-bottom: 12%;
+    border-radius: 15px;
+
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 20px;
+
+    color: #000000;
+    transition: background 0.5s;
+}
+
+.button:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;    /* наслоение по z */
+    padding: 1.2px;   /* толщина рамки */
+    border-radius: 14px;
+
+    background: 
+        linear-gradient(340deg, 
+        #000000 12.76%, 
+        #ffffff 97.75%);
+    mask:
+        linear-gradient(#000 0 0) exclude,
+        linear-gradient(#000 0 0) content-box;
+}
+
+.login .button {
+    background: 
+        linear-gradient(90.86deg, 
+        #788D92 22.35%, 
+        rgba(74, 99, 116, 0.7) 81.97%);
+    backdrop-filter: blur(20px);
+}
+
+.login__underline {
+    height: 24px;
+    width: 360px;
+    border: none;
+    border-radius: 2px;
+
+    background: 
+        url("../../static/img/icons/arrow_forward_dark.svg"),
+        linear-gradient(90deg, 
+        rgba(39, 68, 93, 0) 0%, 
+        rgba(39, 68, 93, 0.76) 100%);
+        
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: contain;
+}
+
+.signin {
+    padding: 38px 20px 24px;
+    width: 40%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: cadetblue;
+    border-radius:  0px 15px 15px 0px;
+}
+
+.signin .logo {
+    opacity: 0;
+}
+
+.signin .header {
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 100%;
+    margin-bottom: 2px;
+    
+    color: #FFFFFF;
+    opacity: 0.9;
+}
+
+.signin .desc {
+    margin-bottom: 24px;
+
+    font-size: 24px;
+    font-weight: 300;
+    color: #D1DDD9;
+}
+
+.signin .button {
+    margin-bottom: 18px;
+
+    background:
+    url('../../static/img/texture.png'),
+    linear-gradient(
+        90.86deg, 
+        rgba(150, 200, 188, 0.4) 22.35%, 
+        rgba(73, 125, 116, 0.3) 81.97%);
+    background-blend-mode: plus-darker, normal;
+    backdrop-filter: blur(20px);
+}
+
+.signin .button:before {
+    padding: 2px;   /* толщина рамки */
+}
+
+.signin__back-link {
+    display: flex;
+    font-weight: 300;
+    font-size: 18px;
+
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1.1px;
+
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.button:hover {
+    color: rgba(35, 35, 47, 0.9);
+    background: rgba(119, 139, 145, 0.3);
+}
+
+.button:active {
+    background: rgba(113, 187, 178, 0.8);
+}
+
+/* сделать стрелочку около возвращения на сайт, 
+сделать фото на фоне, сделать рамку и тень для окна */

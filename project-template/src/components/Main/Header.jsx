@@ -28,7 +28,7 @@ const Header = () => {
         <a className={styles.button} href="">
           Realtors
         </a>
-        <a className="header_button--img" href="/sailer">
+        <a className="header_button--img" href="/login">
           <img
             src={assets.home}
             width="20px"

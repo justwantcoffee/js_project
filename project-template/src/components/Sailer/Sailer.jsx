@@ -1,10 +1,13 @@
 import React from 'react';
 import Header from '../Main/Header';
+import Logo from '../HomePage/Logo';
+
 import { UserCard } from './UserCard';
 import styles from '../../styles/sailer.module.css';
 import { ClientList } from './ClientList';
 import { Published } from './Published';
-import { Logo } from '../HomePage/Logo';
+
+
 export const Sailer = () => {
   return (
     <div className={styles.sailer}>
