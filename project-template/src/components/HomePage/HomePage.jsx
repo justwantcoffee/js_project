@@ -9,12 +9,14 @@ import About from './About';
 import Contacts from './Contacts';
 
 import styles from '../../styles/homepage.module.css';
+import AuthDetails from '../Auth/AuthDetails';
 
 const HomePage = () => {
   return (
     <div>
       <div className={styles.mainpage}>
       <Header />
+      <AuthDetails />
       <div className={styles.content}>
         <Banner />
         <Offers />

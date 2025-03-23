@@ -1,13 +1,47 @@
-import React from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import React, { useState } from 'react';
+import { auth } from "../../firebase";
+import { useNavigate } from 'react-router-dom';
 
 import Logo from '../HomePage/Logo';
+import AuthDetails from './AuthDetails';
 
 import styles from '../../styles/login.module.css';
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const goToProfile = () => {
+    navigate('/sailer');
+  }
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  function logIn(e) {
+    e.preventDefault();
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then ((user) => {
+        /* при успешном входе в аккаунт очищаем поля */
+        console.log("вход произведен успешно");
+        setError("");
+        setEmail("");
+        setPassword("");
+        goToProfile();
+      })
+      .catch((error)=>{
+        console.log(error)
+        setError("Sorry, couldn't find your account :(")
+      });
+  };
+
   return (
     <div className={styles.container}>
       {/* Форма логина */}
+
+      <AuthDetails />
 
       <div className={styles.login}>
 
@@ -16,28 +50,33 @@ const Login = () => {
           <h2 className={styles.header}>Welcome back!</h2>
           <h3 className={styles.desc}>Log in and continue your search</h3>
 
-          <input 
-            className={styles.input}
-            type="email"
-            required
-            placeholder='email@email.ru'/>
+          <form>
+            <input 
+              className={styles.input}
+              placeholder='email@email.ru'
+              value={email} 
+              onChange={(e)=>setEmail(e.target.value)} 
+              type="email"
+              required  />
 
-          <input 
-            className={styles.input}
-            type="password" 
-            name="password" 
-            id="password" 
-            required
-            placeholder='Enter your password'/>
+            <input 
+              className={styles.input}
+              placeholder='Enter your password'
+              value={password} 
+              onChange={(e)=>setPassword(e.target.value)}
+              type="password" 
+              required  />
 
-          <a className={styles.loginForgotPassword} href="#">Forgot the password?</a>
+            <a className={styles.loginForgotPassword} href="#">Forgot the password?</a>
+
+            <button 
+              className={styles.button}
+              onClick={logIn}
+              >Log in
+            </button>
+          </form>
+
         </div>
-        
-        <button 
-          className={styles.button}
-          >Log in
-        </button>
-
         <hr className={styles.loginUnderline}/>
       </div>
 
@@ -51,12 +90,11 @@ const Login = () => {
         <h2 className={styles.header}>Don’t have</h2>
         <h3 className={styles.desc}>an account yet?</h3>
 
-        <button
-          className={styles.button}
-          >Sign in
-        </button>
+        <a href="/register"
+          className={styles.button}> Sign up
+        </a>
 
-        <a className={styles.signinBackLink} href="#">Back to website</a>
+        <a className={styles.signinBackLink} href="/">Back to website</a>
         </div>
       </div>
       </div>

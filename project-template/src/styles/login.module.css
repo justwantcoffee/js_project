@@ -109,13 +109,17 @@
 
 .button {
     width: 260px;
+    display: block;
     padding: 10px 10px 12px 10px;
+
     margin-bottom: 12%;
     border-radius: 15px;
 
     font-family: 'Playfair Display', serif;
     font-weight: 400;
     font-size: 20px;
+    text-align: center;
+    text-decoration: none;
 
     color: #000000;
     transition: background 0.5s;
