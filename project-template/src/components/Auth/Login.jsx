@@ -18,7 +18,8 @@ const Login = () => {
 
           <input 
             className={styles.input}
-            type="email" 
+            type="email"
+            required
             placeholder='email@email.ru'/>
 
           <input 
@@ -26,6 +27,7 @@ const Login = () => {
             type="password" 
             name="password" 
             id="password" 
+            required
             placeholder='Enter your password'/>
 
           <a className={styles.loginForgotPassword} href="#">Forgot the password?</a>
@@ -41,7 +43,8 @@ const Login = () => {
 
       {/* Для перехода к регистрации */}
 
-      <div className={styles.signin}>
+      <div className={styles.background}>
+        <div className={styles.signin}>
         <h2 className={styles.logo}>ART</h2>
         
         <div className={styles.content}>
@@ -56,7 +59,7 @@ const Login = () => {
         <a className={styles.signinBackLink} href="#">Back to website</a>
         </div>
       </div>
-
+      </div>
     </div>
   );
 };
