@@ -4,6 +4,7 @@ apartments sale &amp; rent
 Перед запуском ввести в консоль ---> npm install <--- Для установки всех зависимостей.
 
 Дополнение: для корректной работы
+авторизации ---> npm install firebase
 css модулей ---> npm install babel-plugin-react-css-modules --save
 
 Для запуска проекта ---> npm start
