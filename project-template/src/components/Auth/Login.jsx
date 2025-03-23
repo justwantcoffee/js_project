@@ -1,16 +1,14 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth } from "../../firebase";
 import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 import Logo from '../HomePage/Logo';
-import AuthDetails from './AuthDetails';
-
+import AuthDetails from '../Auth/AuthDetails';
 import styles from '../../styles/login.module.css';
 
 const Login = () => {
   const navigate = useNavigate();
-
   const goToProfile = () => {
     navigate('/sailer');
   }

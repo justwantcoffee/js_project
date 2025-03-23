@@ -1,14 +1,23 @@
 import React from 'react';
 import styles from '../../styles/header.module.css';
 import assets from '../../assets';
-import logInCheck from '../Auth/AuthDetails';
-import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const Header = () => { 
   const navigate = useNavigate();
-  const goToProfile = () => {
-    navigate('/login');
+  const auth = getAuth();
+
+  function logInChecker() {
+    onAuthStateChanged(auth, (user) => {
+      if(user) {
+        console.log("user is logged in");
+        navigate('/sailer');
+      } else {
+        console.log("user is not logged in");
+        navigate('/login');
+      }
+    }); 
   }
 
   return (
@@ -36,7 +45,7 @@ const Header = () => {
         <a className={styles.button} href="#">
           Realtors
         </a>
-        <button onClick={goToProfile}>
+        <button onClick={logInChecker}>
           <img
             src={assets.home}
             width="20px"

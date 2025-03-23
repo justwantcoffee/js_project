@@ -19,10 +19,6 @@ const AuthDetails = () => {
         }
     })
 
-    function logInCheck() {
-
-    }
-
     function userSignOut() {
         signOut(auth)
             .then(() => console.log('success'))
