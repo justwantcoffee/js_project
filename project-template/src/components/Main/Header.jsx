@@ -1,12 +1,14 @@
-import React from 'react';
+// Header.jsx
+import React, { useState } from 'react';
 import styles from '../../styles/header.module.css';
 import assets from '../../assets';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
-const Header = () => { 
+const Header = ({ setSearchQuery }) => { 
   const navigate = useNavigate();
   const auth = getAuth();
+  const [localQuery, setLocalQuery] = useState('');
 
   function logInChecker() {
     onAuthStateChanged(auth, (user) => {
@@ -20,16 +22,30 @@ const Header = () => {
     }); 
   }
 
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setLocalQuery(value);
+    if (setSearchQuery) {
+      setSearchQuery(value);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className={styles.header}>
       <div className={styles.search}>
-        <form className={styles.form} action="/search" method="get">
+        <form className={styles.form} onSubmit={handleSubmit}>
           <input
             className={styles.field}
             type="text"
             name="query"
             placeholder="Search..."
-          ></input>
+            value={localQuery}
+            onChange={handleChange}
+          />
         </form>
       </div>
       <div className={styles.buttonBar}>
