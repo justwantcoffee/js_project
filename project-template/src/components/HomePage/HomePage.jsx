@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../Main/Header';
 import Footer from '../Main/Footer';
 
@@ -12,14 +12,17 @@ import styles from '../../styles/homepage.module.css';
 import AuthDetails from '../Auth/AuthDetails';
 
 const HomePage = () => {
+  
+  const [searchQuery, setSearchQuery] = useState('');
+  
   return (
     <div>
       <div className={styles.mainpage}>
-      <Header />
+      <Header setSearchQuery={setSearchQuery} />
       <AuthDetails />
       <div className={styles.content}>
         <Banner />
-        <Offers />
+        <Offers searchQuery={searchQuery} />
       </div>
       </div>
       <Footer />
