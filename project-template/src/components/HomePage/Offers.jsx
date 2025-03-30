@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import OfferList from '../ContentPage/OfferList';
 import styles from '../../styles/offers.module.css';
 import Filters from '../ContentPage/Filters';
 
-// Пример данных карточек (с дополнительными полями для фильтрации)
+// Пример данных карточек
 const sampleOffers = [
   {
     id: 1,
     header: "Matveevsky park",
     underground: "Amin’evskaya",
     time: "3 min",
-    img: "",
-    price: 87116,
     priceText: "From 87’116 $",
     businessType: "buy",
     realEstateType: "single-family",
@@ -24,8 +22,6 @@ const sampleOffers = [
     header: "Tomilinsky Bul'var",
     underground: "Kotel’niki",
     time: "20 min",
-    img: "",
-    price: 49880,
     priceText: "From 49’880 $",
     businessType: "sell",
     realEstateType: "apartment",
@@ -38,8 +34,6 @@ const sampleOffers = [
     header: "Bol'shaya Akademisheskaya",
     underground: "MCK/Lihobory",
     time: "11 min",
-    img: "",
-    price: 69244,
     priceText: "From 69’244 $",
     businessType: "buy",
     realEstateType: "single-family",
@@ -52,8 +46,6 @@ const sampleOffers = [
     header: "Vostochnoe Butovo",
     underground: "Bul’var Dmitrya Donskogo",
     time: "15 min",
-    img: "",
-    price: 45486,
     priceText: "From 45’486 $",
     businessType: "sell",
     realEstateType: "townhouse",
@@ -63,12 +55,9 @@ const sampleOffers = [
   }
 ];
 
-const Offers = () => {
+const Offers = ({ searchQuery = '' }) => {
   const [filtersVisible, setFiltersVisible] = useState(false);
-  const [offers] = useState(sampleOffers);
   const [filteredOffers, setFilteredOffers] = useState(sampleOffers);
-
-  // Состояние для сохранённых (применённых) фильтров
   const [appliedFilters, setAppliedFilters] = useState({
     businessType: "buy",
     realEstateType: "single-family",
@@ -81,59 +70,48 @@ const Offers = () => {
     kitchenSize: null,
   });
 
-  const toggleFilters = () => {
-    setFiltersVisible(!filtersVisible);
-  };
+  const toggleFilters = () => setFiltersVisible(prev => !prev);
 
   const handleApplyFilters = (newFilters) => {
-    console.log("Applying filters:", newFilters);
-    // Обновляем применённые фильтры
     setAppliedFilters(newFilters);
-
-    // Пример фильтрации, включая поля totalArea и kitchenArea
-    const newFilteredOffers = offers.filter((offer) => {
-      let match = true;
-      // Фильтр по бизнес-типу
-      if (newFilters.businessType && offer.businessType !== newFilters.businessType) {
-        match = false;
-      }
-      // Фильтр по типу недвижимости
-      if (newFilters.realEstateType && offer.realEstateType !== newFilters.realEstateType) {
-        match = false;
-      }
-      // Фильтр по минимальной площади
-      if (newFilters.areaFrom && offer.totalArea < +newFilters.areaFrom) {
-        match = false;
-      }
-      // Фильтр по максимальной площади
-      if (newFilters.areaTo && offer.totalArea > +newFilters.areaTo) {
-        match = false;
-      }
-      // Фильтр по площади кухни
-      if (newFilters.kitchenSize && offer.kitchenArea !== +newFilters.kitchenSize) {
-        match = false;
-      }
-      return match;
-    });
-
-    setFilteredOffers(newFilteredOffers);
     setFiltersVisible(false);
   };
+
+  useEffect(() => {
+    let result = sampleOffers.filter(offer => {
+      const isSearchMatch = !searchQuery || offer.header.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                             offer.underground.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                             offer.priceText.toLowerCase().includes(searchQuery.toLowerCase());
+
+      const isBusinessTypeMatch = !appliedFilters.businessType || offer.businessType === appliedFilters.businessType;
+      const isRealEstateTypeMatch = !appliedFilters.realEstateType || offer.realEstateType === appliedFilters.realEstateType;
+      const isAreaFromMatch = !appliedFilters.areaFrom || offer.totalArea >= +appliedFilters.areaFrom;
+      const isAreaToMatch = !appliedFilters.areaTo || offer.totalArea <= +appliedFilters.areaTo;
+      const isKitchenSizeMatch = !appliedFilters.kitchenSize || offer.kitchenArea === +appliedFilters.kitchenSize;
+
+      return isSearchMatch && isBusinessTypeMatch && isRealEstateTypeMatch && isAreaFromMatch &&
+             isAreaToMatch && isKitchenSizeMatch;
+    });
+
+    setFilteredOffers(result);
+  }, [searchQuery, appliedFilters]);
 
   return (
     <div className={styles.offers}>
       <h2 className={styles.header}>NEW Buildings</h2>
+
       <div className={styles.dropdown}>
         <button onClick={toggleFilters} className={styles.button}>Filters</button>
         {filtersVisible && (
           <Filters
             visible={filtersVisible}
-            filters={appliedFilters}  // передаём применённые фильтры
+            filters={appliedFilters}
             onApply={handleApplyFilters}
           />
         )}
       </div>
       <hr className={styles.underline}/>
+
       <div className={styles.content}>
         <OfferList offers={filteredOffers} />
       </div>
