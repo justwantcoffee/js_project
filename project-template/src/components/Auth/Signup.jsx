@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from "../../firebase";
 
 const Signup = () => {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [copypassword, setCopyPassword] = useState("");
@@ -13,7 +14,7 @@ const Signup = () => {
 
     /* проверка что пароль и копия пароля совпадает */
     if(copypassword !== password) {
-      setError("Passwords don't match, try again please :(")
+      setError("Passwords don't match, try again please")
       return
     }
 
@@ -22,9 +23,12 @@ const Signup = () => {
         /* при успешном создании аккаунта очищаем поля */
         console.log('пользователь успешно создан');
         setError("");
+        setLastname("");
         setEmail("");
         setPassword("");
         setCopyPassword("");
+        updateProfile(auth.currentUser, {displayName: username});
+        console.log(lastname);
       })
       .catch((error)=>console.log(error));
   };
@@ -36,6 +40,17 @@ const Signup = () => {
 
       <div>
         <form onSubmit={register}>
+          <input 
+            placeholder='Enter your firstname'
+            value={lastname} 
+            onChange={(e)=>setUsername(e.target.value)} 
+            type="text" 
+
+            minlength="2"
+            maxlength="12"
+            size="14"
+            required  />
+          
           <input 
             placeholder='Enter your email'
             value={email} 

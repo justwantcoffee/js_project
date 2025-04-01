@@ -21,7 +21,7 @@ const AuthDetails = () => {
 
     function userSignOut() {
         signOut(auth)
-            .then(() => console.log('success'))
+            .then(() => console.log('signed out successfully'))
             .catch((e) => console.log(e))
     }
 
@@ -29,7 +29,7 @@ const AuthDetails = () => {
         <div>
             {authUser ? (
                 <div>
-                    <p>{`Signed in as ${authUser.email}`}</p>
+                    <p>{`Signed in as ${authUser.displayName}`}</p>
                     <button onClick={userSignOut}>Sign out</button>
                 </div>
             ) : (

@@ -3,7 +3,6 @@ import { auth } from "../../firebase";
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
-import Logo from '../HomePage/Logo';
 import AuthDetails from '../Auth/AuthDetails';
 import styles from '../../styles/login.module.css';
 
@@ -28,10 +27,11 @@ const Login = () => {
         setEmail("");
         setPassword("");
         goToProfile();
+        console.log(user);
       })
       .catch((error)=>{
         console.log(error)
-        setError("Sorry, couldn't find your account :(")
+        setError("Sorry, couldn't find your account!")
       });
   };
 
