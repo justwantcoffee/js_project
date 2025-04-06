@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   background-image: url('/src/assets/background.png');
   margin: 0px;
@@ -17,7 +18,7 @@ body {
 
 @media (max-width: 1200px) {
   .mainpage {
-    padding: 80px;
+    padding: 60px;
   }
 }
 

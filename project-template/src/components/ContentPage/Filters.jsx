@@ -159,28 +159,35 @@ const Filters = ({ filters = {}, onApply, visible }) => {
       <div className={styles.filterRow}>
         <label className={styles.filterLabel}>Total area</label>
         <div className={styles.rangeGroup}>
-          <input
-            type="number"
-            name="areaFrom"
-            placeholder="Starting at"
-            value={localFilters.areaFrom || ""}
-            onChange={handleInputChange}
-          />
-          <input
-            type="number"
-            name="areaTo"
-            placeholder="Up to"
-            value={localFilters.areaTo || ""}
-            onChange={handleInputChange}
-          />
-          <span>m²</span>
+          <div className={styles.inputContainer}>
+            <input
+              className={styles.input}
+              type="number"
+              name="areaFrom"
+              placeholder="Starting at"
+              value={localFilters.areaFrom || ""}
+              onChange={handleInputChange}
+            />
+            <span className={styles.meters}>m²</span>
+          </div>
+          <div className={styles.inputContainer}>
+            <input
+              className={styles.input}
+              type="number"
+              name="areaTo"
+              placeholder="Up to"
+              value={localFilters.areaTo || ""}
+              onChange={handleInputChange}
+              />
+            <span>m²</span>
+          </div>
         </div>
       </div>
 
       {/* Площадь кухни (Kitchen area) */}
       <div className={styles.filterRow}>
         <label className={styles.filterLabel}>Kitchen Area</label>
-        <div className={styles.toggleGroup}>
+        <div className={styles.kitchenSizeRow}>
           {[6, 7, 8, 9, 10, 12, 15].map((size) => (
             <button
               key={size}

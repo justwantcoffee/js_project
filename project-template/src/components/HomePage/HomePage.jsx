@@ -4,6 +4,7 @@ import Footer from '../Main/Footer';
 
 import Banner from './Banner';
 import Offers from './Offers';
+import Filters from "../ContentPage/Filters";
 import Services from './Services';
 import About from './About';
 import Contacts from './Contacts';
@@ -20,8 +21,9 @@ const HomePage = () => {
       <div className={styles.mainpage}>
       <Header setSearchQuery={setSearchQuery} />
       <AuthDetails />
+      <Banner />
       <div className={styles.content}>
-        <Banner />
+        <Filters />
         <Offers searchQuery={searchQuery} />
       </div>
       </div>

@@ -42,7 +42,7 @@ const Signup = () => {
         <form onSubmit={register}>
           <input 
             placeholder='Enter your firstname'
-            value={lastname} 
+            value={username} 
             onChange={(e)=>setUsername(e.target.value)} 
             type="text" 
 

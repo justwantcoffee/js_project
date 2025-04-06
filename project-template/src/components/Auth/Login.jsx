@@ -31,7 +31,7 @@ const Login = () => {
       })
       .catch((error)=>{
         console.log(error)
-        setError("Sorry, couldn't find your account!")
+        setError("Sorry, couldn't find your account")
       });
   };
 
