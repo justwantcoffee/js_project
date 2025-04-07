@@ -1,21 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import ObjectCard from './ObjectCard';
 import styles from '../../../src/styles/offerlist.module.css';
 
-const OfferList = ({ offers, searchQuery = '' }) => {
-  const [filteredOffers, setFilteredOffers] = useState(offers || []);
-
-  useEffect(() => {
-    if (!searchQuery) {
-      setFilteredOffers(offers || []);
-    } else {
-      const query = searchQuery.toLowerCase();
-      const filtered = offers.filter(offer => 
-        offer.header.toLowerCase().includes(query)
-      );
-      setFilteredOffers(filtered);
-    }
-  }, [searchQuery, offers]);
+const OfferList = ({ offers = [], searchQuery = '' }) => {
+  const filteredOffers = useMemo(() => {
+    const query = searchQuery.toLowerCase();
+    if (!query) return offers;
+    return offers.filter(offer =>
+      offer.header.toLowerCase().includes(query)
+    );
+  }, [offers, searchQuery]);
 
   return (
     <div className={styles.cardsWrapper}>
