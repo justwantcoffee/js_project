@@ -1,0 +1,161 @@
+.container {
+    font-family: 'Playfair Display', serif;
+    
+    display: flex;
+    max-width: 61.25rem;
+    padding: 3.75rem 1.875rem;
+    margin: auto;
+}
+
+.container__left {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 1.875rem 1.875rem 3.75rem 1.875rem;
+    border-radius: .9375rem 0rem 0rem .9375rem;
+
+    background: 
+        radial-gradient(93.3% 169.73% at 18.2% 11.38%, 
+        rgba(39, 68, 93, 0.1) 0%, 
+        rgba(39, 68, 93, 0.3) 100%);
+    backdrop-filter: blur(1.25rem);
+}
+
+.container__right {
+    width: 40%;
+    display: flex;
+
+    background: 
+        url("../../static/img/main-img.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container__right .content {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pageHeader {
+    font-weight: 500;
+    font-size: 2rem;
+    color: #000000;
+}
+
+.pageHeader.extra {
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #497D74;
+
+    margin-bottom: 1.25rem;
+}
+
+.infoBlock {
+    width: 80%;
+    max-width: 22.5rem;
+    
+    display: flex;
+    flex-direction: column;
+
+    gap: .25rem;
+}
+
+.infoBlock.personal {
+    margin-bottom: .875rem;
+}
+
+.inputLabel {
+    font-weight: 400;
+    font-size: 1rem;
+
+    color: #497D74;
+}
+
+.input {
+    width: 100%;
+    display: flex;
+
+    padding: 8px 18px;
+
+    background: rgba(230, 235, 240, 0.5);
+    border: 1px solid #798C91;
+    border-radius: 15px;
+    
+}
+
+.input::placeholder {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+
+    color: rgba(75, 100, 116, 0.8);
+
+    transition: color 0.3s ease;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.input:focus::placeholder {
+    
+    color: rgba(75, 100, 116, 0.5);
+}
+
+/* кнопка создания аккаунта */
+
+.createButton:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;            /* наслоение по z */
+    padding: 1.2px;         /* толщина рамки */
+    border-radius: 14px;
+
+    background: 
+        linear-gradient(340deg, 
+        #000000 12.76%, 
+        #ffffff 97.75%);
+    mask:
+        linear-gradient(#000 0 0) exclude,
+        linear-gradient(#000 0 0) content-box;
+}
+
+.createButton {
+    background: 
+        linear-gradient(90.86deg, 
+        #788D92 22.35%, 
+        rgba(74, 99, 116, 0.7) 81.97%);
+    backdrop-filter: blur(20px);
+}
+
+.createButton {
+    margin-bottom: 18px;
+
+    background:
+    url('../../static/img/texture.png'),
+    linear-gradient(
+        90.86deg, 
+        rgba(150, 200, 188, 0.4) 22.35%, 
+        rgba(73, 125, 116, 0.3) 81.97%);
+    background-blend-mode: plus-darker, normal;
+    backdrop-filter: blur(20px);
+}
+
+.createButton:before {
+    padding: 2px;   /* толщина рамки */
+}
+
+.button:hover {
+    color: rgba(35, 35, 47, 0.9);
+    background: rgba(119, 139, 145, 0.3);
+}
+
+.button:active {
+    background: rgba(113, 187, 178, 0.8);
+}

@@ -167,6 +167,8 @@
     background-size: contain;
 }
 
+/* правая часть формы */
+
 .background {
     width: 40%;
     display: flex;
