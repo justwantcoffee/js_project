@@ -13,7 +13,7 @@
     align-items: center;
     flex-direction: column;
 
-    padding: 1.875rem 1.875rem 3.75rem 1.875rem;
+    padding: 1.875rem 1.875rem 4.375rem 1.875rem;
     border-radius: .9375rem 0rem 0rem .9375rem;
 
     background: 
@@ -39,6 +39,43 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    padding: .625rem .75rem .875rem .75rem;
+    margin-bottom: 2.625rem;
+
+    font-weight: 500;
+    font-size: 5.125rem;
+    
+    border-radius: .75rem;
+    color: #000000;
+
+    background: 
+        linear-gradient(133.46deg, 
+        rgba(255, 255, 255, 0.24) 15.95%, 
+        rgba(255, 255, 255, 0.55) 100.75%);
+
+    box-shadow: 3px 3px 10px rgba(39, 68, 93, 0.25);
+    backdrop-filter: blur(1.25rem);
+}
+
+.logo:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;    /* наслоение по z */
+    padding: 1px;   /* толщина рамки */
+    border-radius: 10px;
+
+    background: 
+        linear-gradient(340deg, 
+        #000000 12.76%, 
+        #ffffff 97.75%);
+    mask:
+        linear-gradient(#000 0 0) exclude,
+        linear-gradient(#000 0 0) content-box;
 }
 
 .pageHeader {
@@ -74,17 +111,17 @@
     font-size: 1rem;
 
     color: #497D74;
+    margin-bottom: .25rem;
 }
 
 .input {
     width: 100%;
     display: flex;
-
-    padding: 8px 18px;
+    padding: .875rem 1rem;
 
     background: rgba(230, 235, 240, 0.5);
     border: 1px solid #798C91;
-    border-radius: 15px;
+    border-radius: .9375rem;
     
 }
 
@@ -115,7 +152,7 @@
     inset: 0;
     z-index: -1;            /* наслоение по z */
     padding: 1.2px;         /* толщина рамки */
-    border-radius: 14px;
+    border-radius: .9375rem;
 
     background: 
         linear-gradient(340deg, 
@@ -135,7 +172,7 @@
 }
 
 .createButton {
-    margin-bottom: 18px;
+    margin-bottom: 1.25rem;
 
     background:
     url('../../static/img/texture.png'),
@@ -158,4 +195,16 @@
 
 .button:active {
     background: rgba(113, 187, 178, 0.8);
+}
+
+.back-link {
+    display: flex;
+    font-weight: 300;
+    font-size: 1rem;
+
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1.1px;
+
+    color: rgba(255, 255, 255, 0.8);
 }

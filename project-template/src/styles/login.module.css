@@ -64,7 +64,7 @@
 
 .header {
     font-weight: 500;
-    font-size: 32px;
+    font-size: 2rem;
 
     color: #000000;
 }
@@ -108,10 +108,11 @@
 }
 
 .button {
-    width: 260px;
+    width: 16.25rem;
     display: block;
     padding: 10px 10px 12px 10px;
 
+    margin: 0rem auto;
     margin-bottom: 12%;
     border-radius: 15px;
 

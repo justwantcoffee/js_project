@@ -42,6 +42,22 @@ const Signup = () => {
       .catch((error)=>console.log(error));
   };
 
+  {/* проверка на админ аккаунт */}
+
+  const[accountType, setAccountType] = useState("");
+  const[adminCode, setAdminCode] = useState("");
+
+  function accountTypeCheck(e) {
+    e.preventDefault();
+    console.log('функция запустилась');
+    
+    if(accountType == 'admin') {
+      setAdminCode('введите код админа');
+    } else {
+      setAdminCode(null);
+    }
+  }
+
   return (
     <div>
 
@@ -52,9 +68,11 @@ const Signup = () => {
         
         <div className={styles.containerLeft}>
 
-          <div className={styles.header}>
-            <h1 className={styles.pageHeader}>Time to take</h1>
-            <h2 className={`${styles.pageHeader} ${styles.extra}`}>first steps towards your future!</h2>
+          <h1 className={styles.logo}>ART</h1>
+
+          <div className={`${styles.infoBlock} ${styles.header}`}>
+            <h2 className={styles.pageHeader}>Time to take</h2>
+            <h3 className={`${styles.pageHeader} ${styles.extra}`}>first steps towards your future!</h3>
           </div>
         
           <div className={`${styles.infoBlock} ${styles.personal}`}>
@@ -116,8 +134,39 @@ const Signup = () => {
         <div className={styles.containerRight}>
 
           <div className={styles.content}>
-            <button className={styles.createButton}>Create</button> 
+
+            <h2>Choose</h2>
+            <h3>an account type:</h3>
+
+            <div onClick={accountTypeCheck} className={styles.radio}>
+              <input 
+                type='radio' 
+                name='accountType'
+                value={'customer'}
+                onChange={(e)=>setAccountType(e.target.value)}
+                className={styles.radioInput} />customer
+
+              <input 
+                type='radio' 
+                name='accountType'
+                value={'seller'}
+                onChange={(e)=>setAccountType(e.target.value)}
+                className={styles.radioInput} />seller
+
+              <input 
+                type='radio' 
+                name='accountType'
+                value={'admin'}
+                onChange={(e)=>setAccountType(e.target.value)}
+                className={styles.radioInput} />admin
+
+              { adminCode ? <input type='text' name='adminCode' value=''  placeholder={adminCode} className={styles.adminCodeInput}/> : ""}
+            </div>
+
+            <button className={styles.createButton}>Sign up</button> 
             {error ? <p style={{color:'red'}}>{error}</p> : ""}
+
+            <a href="/login" className={styles.backLink}>Back to Login page</a>
           </div>
 
         </div>

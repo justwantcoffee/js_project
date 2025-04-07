@@ -39,8 +39,6 @@ const Login = () => {
     <div className={styles.container}>
       {/* Форма логина */}
 
-      <AuthDetails />
-
       <div className={styles.login}>
 
         <h1 className={styles.logo}>ART</h1>
