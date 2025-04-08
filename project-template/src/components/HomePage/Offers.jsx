@@ -55,65 +55,32 @@ const sampleOffers = [
   }
 ];
 
-const Offers = ({ searchQuery = '' }) => {
-  const [filtersVisible, setFiltersVisible] = useState(false);
+const Offers = ({ searchQuery = '', filters }) => {
   const [filteredOffers, setFilteredOffers] = useState(sampleOffers);
-  const [appliedFilters, setAppliedFilters] = useState({
-    businessType: "buy",
-    realEstateType: "single-family",
-    rooms: null,
-    priceType: "object",
-    priceFrom: "",
-    priceTo: "",
-    areaFrom: "",
-    areaTo: "",
-    kitchenSize: null,
-  });
-
-  const toggleFilters = () => setFiltersVisible(prev => !prev);
-
-  const handleApplyFilters = (newFilters) => {
-    setAppliedFilters(newFilters);
-    setFiltersVisible(false);
-  };
 
   useEffect(() => {
     let result = sampleOffers.filter(offer => {
+
       const isSearchMatch = !searchQuery || offer.header.toLowerCase().includes(searchQuery.toLowerCase()) ||
                              offer.underground.toLowerCase().includes(searchQuery.toLowerCase()) ||
                              offer.priceText.toLowerCase().includes(searchQuery.toLowerCase());
 
-      const isBusinessTypeMatch = !appliedFilters.businessType || offer.businessType === appliedFilters.businessType;
-      const isRealEstateTypeMatch = !appliedFilters.realEstateType || offer.realEstateType === appliedFilters.realEstateType;
-      const isAreaFromMatch = !appliedFilters.areaFrom || offer.totalArea >= +appliedFilters.areaFrom;
-      const isAreaToMatch = !appliedFilters.areaTo || offer.totalArea <= +appliedFilters.areaTo;
-      const isKitchenSizeMatch = !appliedFilters.kitchenSize || offer.kitchenArea === +appliedFilters.kitchenSize;
+      const isBusinessTypeMatch = !filters.businessType || offer.businessType === filters.businessType;
+      const isRealEstateTypeMatch = !filters.realEstateType || offer.realEstateType === filters.realEstateType;
+      const isAreaFromMatch = !filters.areaFrom || offer.totalArea >= +filters.areaFrom;
+      const isAreaToMatch = !filters.areaTo || offer.totalArea <= +filters.areaTo;
+      const isKitchenSizeMatch = !filters.kitchenSize || offer.kitchenArea === +filters.kitchenSize;
 
       return isSearchMatch && isBusinessTypeMatch && isRealEstateTypeMatch && isAreaFromMatch &&
              isAreaToMatch && isKitchenSizeMatch;
     });
 
     setFilteredOffers(result);
-  }, [searchQuery, appliedFilters]);
+  }, [searchQuery, filters]);
 
   return (
     <div className={styles.offers}>
       <h2 className={styles.header}>NEW Buildings</h2>
-
-      {/* 
-      <div className={styles.dropdown}>
-        <button onClick={toggleFilters} className={styles.button}>Filters</button>
-        {filtersVisible && (
-          <Filters
-            visible={filtersVisible}
-            filters={appliedFilters}
-            onApply={handleApplyFilters}
-          />
-        )}
-      </div>
-      */}
-
-      <hr className={styles.underline}/>
 
       <div className={styles.content}>
         <OfferList offers={filteredOffers} />
