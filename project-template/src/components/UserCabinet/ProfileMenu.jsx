@@ -5,7 +5,7 @@ const ProfileMenu = () => {
 
   return (
     <div>
-      <h1>Боковое меню</h1>
+      <h1>Верхнее меню</h1>
       {/* меню профиля */}
 
         <div className={styles.content}>

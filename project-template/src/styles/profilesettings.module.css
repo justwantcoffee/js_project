@@ -1,0 +1,14 @@
+.infoMain {
+    display: flex;
+    flex-direction: column;
+}
+
+.infoExtra {
+    display: flex;
+    flex-direction: column;
+}
+
+.radioContainer {
+    display: flex;
+    flex-direction: row;
+}

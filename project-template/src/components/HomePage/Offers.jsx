@@ -100,6 +100,7 @@ const Offers = ({ searchQuery = '' }) => {
     <div className={styles.offers}>
       <h2 className={styles.header}>NEW Buildings</h2>
 
+      {/* 
       <div className={styles.dropdown}>
         <button onClick={toggleFilters} className={styles.button}>Filters</button>
         {filtersVisible && (
@@ -110,6 +111,8 @@ const Offers = ({ searchQuery = '' }) => {
           />
         )}
       </div>
+      */}
+
       <hr className={styles.underline}/>
 
       <div className={styles.content}>

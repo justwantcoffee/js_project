@@ -17,7 +17,7 @@ export const Sailer = () => {
       <div className={styles.container}>
         <Header />
         <div className={styles.cards}>
-          <ProfileMenu />
+          <ProfileSettings />
           <UserCard />
           <ClientList />
           <Published />
