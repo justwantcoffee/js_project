@@ -6,18 +6,18 @@ import Logo from '../Main/Logo';
 import styles from '../../styles/Auth/signup.module.css';
 
 const Signup = () => {
-  const [username, setUsername] = useState("");
+  const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [copypassword, setCopyPassword] = useState("");
   const [error, setError] = useState("");
+  const[accountType, setAccountType] = useState("");
 
   function register(e) {
     e.preventDefault();
 
     /* проверка что пароль и копия пароля совпадает */
-
     if(copypassword !== password) {
       setError("Passwords don't match, try again please")
       return
@@ -29,35 +29,20 @@ const Signup = () => {
         console.log('пользователь успешно создан');
 
         setError("");
-        setUsername("");
+        setFirstname("");
         setLastname("");
         setEmail("");
         setPassword("");
         setCopyPassword("");
 
-        updateProfile(auth.currentUser, {displayName: username});
-        updateProfile(auth.currentUser, {lastname: lastname});
-
-        console.log(lastname);
+        /* обновляем имя пользователя, внося тип аккаунта */
+        updateProfile(auth.currentUser, {displayName: `${accountType}|${firstname}|${lastname}`})
       })
       .catch((error)=>console.log(error));
   };
 
-  {/* проверка на админ аккаунт */}
+  {/* ставим тип аккаунта */}
 
-  const[accountType, setAccountType] = useState("");
-  const[adminCode, setAdminCode] = useState("");
-
-  function accountTypeCheck(e) {
-    e.preventDefault();
-    console.log('функция запустилась');
-    
-    if(accountType == 'admin') {
-      setAdminCode('введите код админа');
-    } else {
-      setAdminCode(null);
-    }
-  }
 
   return (
     <div>
@@ -77,8 +62,8 @@ const Signup = () => {
             <input 
               className={styles.input}
               placeholder='Enter your firstname'
-              value={username} 
-              onChange={(e)=>setUsername(e.target.value)} 
+              value={firstname} 
+              onChange={(e)=>setFirstname(e.target.value)} 
               type="text" 
 
               minlength="2"
@@ -105,6 +90,7 @@ const Signup = () => {
               onChange={(e)=>setEmail(e.target.value)} 
               type="email" 
               required  />
+              
           </div>
 
           <div className={styles.infoBlock}>
@@ -136,30 +122,29 @@ const Signup = () => {
             <h2>Choose</h2>
             <h3>an account type:</h3>
 
-            <div onClick={accountTypeCheck} className={styles.radio}>
+            <form className={styles.radio}>
               <input 
                 type='radio' 
                 name='accountType'
-                value={'customer'}
+                value={'cus'} // от customer
                 onChange={(e)=>setAccountType(e.target.value)}
-                className={styles.radioInput} />customer
+                className={styles.radioInput} 
+                required />customer
 
               <input 
                 type='radio' 
                 name='accountType'
-                value={'seller'}
+                value={'sel'} // от seller
                 onChange={(e)=>setAccountType(e.target.value)}
                 className={styles.radioInput} />seller
 
               <input 
                 type='radio' 
                 name='accountType'
-                value={'admin'}
+                value={'adm'} // от admin
                 onChange={(e)=>setAccountType(e.target.value)}
                 className={styles.radioInput} />admin
-
-              { adminCode ? <input type='text' name='adminCode' value=''  placeholder={adminCode} className={styles.adminCodeInput}/> : ""}
-            </div>
+            </form>
 
             <button className={styles.createButton}>Sign up</button> 
             {error ? <p style={{color:'red'}}>{error}</p> : ""}
