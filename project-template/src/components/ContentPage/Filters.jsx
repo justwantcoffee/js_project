@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import styles from "../../styles/filters.module.css";
+import styles from "../../styles/ContentPage/filters.module.css";
 
 const Filters = ({ filters = {}, onApply, visible }) => {
   const [localFilters, setLocalFilters] = useState({

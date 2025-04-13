@@ -1,0 +1,49 @@
+.hr {
+  box-shadow: none;
+  border: none;
+
+  margin-bottom: 1.25rem;
+
+  height: 1px;
+  background-color: #497D74;
+  opacity: 0.7;
+}
+
+/* горизонтальное меню */
+
+.profileMenu {
+  display: flex;
+  gap: 2rem;
+} 
+
+.profileMenu button {
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: #27445D;
+}
+
+.profileMenu button.hover {
+  color: #000000;
+}
+
+.profileMenu button.activeTab {
+  text-decoration: 1px underline;
+  color: #000000;
+}
+
+
+/* блоки профиля */
+
+.sailer {
+  margin: 45px;
+}
+.container {
+  max-width: 1428px;
+  margin: 0 auto;
+}
+.cards {
+  display: grid;
+  grid-template-columns: 345px 345px 1fr;
+  padding: 2.5rem 0 50px 0;
+  gap: 16px;
+}
