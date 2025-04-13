@@ -3,8 +3,8 @@ import { auth } from "../../firebase";
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
-import AuthDetails from '../Auth/AuthDetails';
-import styles from '../../styles/login.module.css';
+import Logo from '../Main/Logo';
+import styles from '../../styles/Auth/login.module.css';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -40,8 +40,7 @@ const Login = () => {
       {/* Форма логина */}
 
       <div className={styles.login}>
-
-        <h1 className={styles.logo}>ART</h1>
+        <Logo />
         <div className={styles.content}>
           <h2 className={styles.header}>Welcome back!</h2>
           <h3 className={styles.desc}>Log in and continue your search</h3>
@@ -79,19 +78,17 @@ const Login = () => {
       {/* Для перехода к регистрации */}
 
       <div className={styles.background}>
-        <div className={styles.signin}>
-        <h2 className={styles.logo}>ART</h2>
-        
-        <div className={styles.content}>
-        <h2 className={styles.header}>Don’t have</h2>
-        <h3 className={styles.desc}>an account yet?</h3>
+        <div className={styles.signin}>        
+          <div className={styles.content}>
+          <h2 className={styles.header}>Don’t have</h2>
+          <h3 className={styles.desc}>an account yet?</h3>
 
-        <a href="/register"
-          className={styles.button}> Sign up
-        </a>
+          <a href="/register"
+            className={styles.button}> Sign up
+          </a>
 
-        <a className={styles.signinBackLink} href="/">Back to website</a>
-        </div>
+          <a className={styles.signinBackLink} href="/">Back to website</a>
+          </div>
       </div>
       </div>
     </div>

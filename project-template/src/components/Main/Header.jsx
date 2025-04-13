@@ -1,9 +1,9 @@
-// Header.jsx
 import React, { useState } from 'react';
-import styles from '../../styles/header.module.css';
 import assets from '../../assets';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
+import styles from '../../styles/Main/header.module.css';
 
 const Header = ({ setSearchQuery }) => { 
   const navigate = useNavigate();
@@ -36,6 +36,8 @@ const Header = ({ setSearchQuery }) => {
 
   return (
     <div className={styles.header}>
+
+      {/* поиск по каталогу */}
       <div className={styles.search}>
         <form className={styles.form} onSubmit={handleSubmit}>
           <input
@@ -48,9 +50,11 @@ const Header = ({ setSearchQuery }) => {
           />
         </form>
       </div>
+
+      {/* кнопки хэдера */}
       <div className={styles.buttonBar}>
-        <a className={styles.button} href="#">
-          Rent
+        <a className={styles.button} href="/">
+          Home
         </a>
         <a className={styles.button} href="#">
           Purchase
@@ -61,6 +65,7 @@ const Header = ({ setSearchQuery }) => {
         <a className={styles.button} href="#">
           Realtors
         </a>
+
         <button onClick={logInChecker}>
           <img
             src={assets.home}
@@ -69,6 +74,7 @@ const Header = ({ setSearchQuery }) => {
             alt="профиль"
           />
         </button>
+
       </div>
     </div>
   );

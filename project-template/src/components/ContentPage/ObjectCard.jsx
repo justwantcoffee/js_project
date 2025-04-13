@@ -1,7 +1,9 @@
 import React from 'react';
-import styles from '../../../src/styles/objectcard.module.css';
 import assets from '../../assets';
-import ImageSwiper from '../Sailer/ImageSwiper';
+import ImageSwiper from '../Profile/ImageSwiper';
+
+import styles from '../../styles/ContentPage/objectcard.module.css';
+
 const images = [
   assets.offerImg1,
   assets.offerImg1,

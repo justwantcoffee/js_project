@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
 import Header from '../Main/Header';
-import Logo from '../HomePage/Logo';
-import ProfileSettings from '../UserCabinet/ProfileSettings';
-import { UserCard } from './UserCard';
-import { ClientList } from './ClientList';
-import { Published } from './Published';
+import Footer from '../Main/Footer';
 
-import styles from '../../styles/Profile/sailer.module.css';
+import ProfileSettings from '../ProfileContent/ProfileSettings';
+import LandlordCabinet from '../ProfileContent/LandlordCabinet';
+
+import styles from '../../styles/Profile/profile.module.css';
 
 export const Sailer = () => {
   const [activeTab, setActiveTab] = useState('cabinet'); // 'cabinet' или 'settings'
 
   return (
-    <div className={styles.sailer}>
-      <Logo />
-      <div className={styles.container}>
+    <div>
+      <div className={styles.main}>
+
         <Header />
-        
         <hr className={styles.hr} />
+
         {/* Горизонтальное меню */}
         <div className={styles.profileMenu}>
           <button
@@ -34,18 +33,13 @@ export const Sailer = () => {
           </button>
         </div>
 
-        {/* Контент */}
-        <div className={styles.cards}>
+        {/* Контент профиля */}
+
           {activeTab === 'settings' && <ProfileSettings />}
-          {activeTab === 'cabinet' && (
-            <>
-              <UserCard />
-              <ClientList />
-              <Published />
-            </>
-          )}
-        </div>
+          {activeTab === 'cabinet' && <LandlordCabinet />}
+
       </div>
+      <Footer/>
     </div>
   );
 };

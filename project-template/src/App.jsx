@@ -2,12 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
 import ContentPage from './components/ContentPage/ContentPage';
-import ClientCabinet from './components/UserCabinet/ClientCabinet';
-import LandlordCabinet from './components/UserCabinet/LandlordCabinet';
-import AdminCabinet from './components/UserCabinet/AdminCabinet';
+import ClientCabinet from './components/ProfileContent/ClientCabinet';
+import LandlordCabinet from './components/ProfileContent/LandlordCabinet';
+import AdminCabinet from './components/ProfileContent/AdminCabinet';
 import Login from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
-import { Sailer } from './components/Sailer/Sailer';
+import { Sailer } from './components/Profile/ProfilePage';
 
 const App = () => {
   return (

@@ -1,15 +1,18 @@
 .footer {
-    padding: 70px 36px;
-
     background-color: rgba(39, 68, 93, 1);
 }
+
+.main {
+    margin: auto;
+    padding: 3.75rem;
+    max-width: 80rem;
+  }
 
 .header {
     margin: 0px 0px 36px 0px;
 
-    font-family: Playfair Display, serif;
     font-weight: 500;
-    font-size: 36px;
+    font-size: 2rem;
     line-height: 100%;
 
     color: rgba(255, 255, 255, 1);
@@ -18,10 +21,10 @@
 .content {
     display: flex;
     flex-wrap: wrap;
+    gap: 2.25rem;
 }
 
 .link {
-    margin-right: 36px;
     margin-bottom: 12px;
 
     text-decoration: none;

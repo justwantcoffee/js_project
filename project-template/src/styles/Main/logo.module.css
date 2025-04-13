@@ -1,0 +1,39 @@
+.logo {
+    display: flex;
+    padding: 10px 12px 14px 12px;
+    margin-bottom: 42px;
+    border-radius: 12px;
+
+    background: 
+        linear-gradient(133.46deg, 
+        rgba(255, 255, 255, 0.24) 15.95%, 
+        rgba(255, 255, 255, 0.55) 100.75%);
+
+    box-shadow: 3px 3px 10px rgba(39, 68, 93, 0.25);
+    backdrop-filter: blur(20px);
+}
+
+.logo:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;    /* наслоение по z */
+    padding: 1px;   /* толщина рамки */
+    border-radius: 10px;
+
+    background: 
+        linear-gradient(340deg, 
+        #000000 12.76%, 
+        #ffffff 97.75%);
+    mask:
+        linear-gradient(#000 0 0) exclude,
+        linear-gradient(#000 0 0) content-box;
+}
+
+.logo a {
+    font-weight: 500;
+    font-size: 5.125rem;
+    
+    text-decoration: none;
+    color: #000000;
+}

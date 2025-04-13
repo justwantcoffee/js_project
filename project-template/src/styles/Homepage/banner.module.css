@@ -27,7 +27,7 @@
     padding: 2.375rem;
     border-radius: 0.6rem;
 
-    background: url('../../static/img/main-img.png');
+    background: url('../../../static/img/main-img.png');
     background-repeat: no-repeat;
     background-position: right;
     background-size: cover;

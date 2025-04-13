@@ -1,8 +1,9 @@
-import styles from '../../styles/homepage.module.css';
+import styles from '../../styles/Main/logo.module.css';
 
 const Logo = () => {
   return (
     <div className={styles.logo}>
+      {/* лого - ссылка в интерфейте */}
       <a href="/">ART</a>
     </div>
   );

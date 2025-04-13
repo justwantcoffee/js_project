@@ -5,11 +5,8 @@ import Footer from '../Main/Footer';
 import Banner from './Banner';
 import Offers from './Offers';
 import Filters from "../ContentPage/Filters";
-import Services from './Services';
-import About from './About';
-import Contacts from './Contacts';
 
-import styles from '../../styles/homepage.module.css';
+import styles from '../../styles/HomePage/homepage.module.css';
 import AuthDetails from '../Auth/AuthDetails';
 
 const HomePage = () => {
@@ -32,7 +29,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <div className={styles.mainpage}>
+      <div className={styles.main}>
         <Header setSearchQuery={setSearchQuery} />
         <AuthDetails />
         <Banner />

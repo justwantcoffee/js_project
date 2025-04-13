@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from "../../firebase";
 
-import styles from '../../styles/signup.module.css';
+import Logo from '../Main/Logo';
+import styles from '../../styles/Auth/signup.module.css';
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -65,11 +66,8 @@ const Signup = () => {
         <form onSubmit={register} className={styles.container}>
         
         {/* левая половина формы */}
-        
         <div className={styles.containerLeft}>
-
-          <h1 className={styles.logo}>ART</h1>
-
+        <Logo />
           <div className={`${styles.infoBlock} ${styles.header}`}>
             <h2 className={styles.pageHeader}>Time to take</h2>
             <h3 className={`${styles.pageHeader} ${styles.extra}`}>first steps towards your future!</h3>

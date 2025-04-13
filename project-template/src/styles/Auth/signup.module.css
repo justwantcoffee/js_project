@@ -13,7 +13,8 @@
     align-items: center;
     flex-direction: column;
 
-    padding: 1.875rem 1.875rem 4.375rem 1.875rem;
+    padding: 1.875rem;
+    padding-bottom: 4.375rem;
     border-radius: .9375rem 0rem 0rem .9375rem;
 
     background: 
@@ -28,7 +29,7 @@
     display: flex;
 
     background: 
-        url("../../static/img/main-img.png");
+        url("../../../static/img/main-img.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -175,7 +176,7 @@
     margin-bottom: 1.25rem;
 
     background:
-    url('../../static/img/texture.png'),
+    url('../../../static/img/texture.png'),
     linear-gradient(
         90.86deg, 
         rgba(150, 200, 188, 0.4) 22.35%, 

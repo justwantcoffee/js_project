@@ -1,3 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-color: aqua;
+  background-image: url('/src/assets/background.png');
+  margin: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 1920px) {
+  .mainpage {
+    padding: 120px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .mainpage {
+    padding: 60px;
+  }
 }
