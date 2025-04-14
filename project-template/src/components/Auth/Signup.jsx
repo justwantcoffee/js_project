@@ -54,8 +54,8 @@ const Signup = () => {
         <div className={styles.containerLeft}>
         <Logo />
           <div className={`${styles.infoBlock} ${styles.header}`}>
-            <h2 className={styles.pageHeader}>Time to take</h2>
-            <h3 className={`${styles.pageHeader} ${styles.extra}`}>first steps towards your future!</h3>
+            <h2>Time to take</h2>
+            <h3>first steps towards your future!</h3>
           </div>
         
           <div className={`${styles.infoBlock} ${styles.personal}`}>
@@ -90,7 +90,6 @@ const Signup = () => {
               onChange={(e)=>setEmail(e.target.value)} 
               type="email" 
               required  />
-              
           </div>
 
           <div className={styles.infoBlock}>
@@ -114,36 +113,47 @@ const Signup = () => {
         </div>
 
         {/* правая половина формы */}
-
         <div className={styles.containerRight}>
-
           <div className={styles.content}>
-
-            <h2>Choose</h2>
-            <h3>an account type:</h3>
+            <div className={`${styles.accountType} ${styles.header}`}>
+              <h2>Choose</h2>
+              <h3 className=''>an account type:</h3>
+            </div>
 
             <form className={styles.radio}>
-              <input 
-                type='radio' 
-                name='accountType'
-                value={'cus'} // от customer
-                onChange={(e)=>setAccountType(e.target.value)}
-                className={styles.radioInput} 
-                required />customer
+              <div className={styles.radioContainer}>
+                <input 
+                  id='cus'
+                  type='radio' 
+                  name='accountType'
+                  value={'cus'} // от customer
+                  onChange={(e)=>setAccountType(e.target.value)}
+                  className={styles.radioInput} 
+                  required />
+                <label for="cus" className={styles.radioLabel}>customer</label>
+              </div>
 
-              <input 
-                type='radio' 
-                name='accountType'
-                value={'sel'} // от seller
-                onChange={(e)=>setAccountType(e.target.value)}
-                className={styles.radioInput} />seller
-
-              <input 
-                type='radio' 
-                name='accountType'
-                value={'adm'} // от admin
-                onChange={(e)=>setAccountType(e.target.value)}
-                className={styles.radioInput} />admin
+              <div className={styles.radioContainer}>
+                <input 
+                  id='sel'                
+                  type='radio' 
+                  name='accountType'
+                  value={'sel'} // от seller
+                  onChange={(e)=>setAccountType(e.target.value)}
+                  className={styles.radioInput} />
+                <label for="sel" className={styles.radioLabel}>seller</label>
+              </div>
+              
+              <div className={styles.radioContainer}>
+                <input 
+                  id='adm'
+                  type='radio' 
+                  name='accountType'
+                  value={'adm'} // от admin
+                  onChange={(e)=>setAccountType(e.target.value)}
+                  className={styles.radioInput} />
+                <label for="adm" className={styles.radioLabel}>admin</label>
+              </div>
             </form>
 
             <button className={styles.createButton}>Sign up</button> 
@@ -151,9 +161,7 @@ const Signup = () => {
 
             <a href="/login" className={styles.backLink}>Back to Login page</a>
           </div>
-
         </div>
-        
       </form>
     </div>
   );

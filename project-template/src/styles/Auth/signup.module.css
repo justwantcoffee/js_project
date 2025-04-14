@@ -24,41 +24,25 @@
     backdrop-filter: blur(1.25rem);
 }
 
-.container__right {
-    width: 40%;
-    display: flex;
-
-    background: 
-        url("../../../static/img/main-img.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+.header {
+    margin-bottom: 1.25rem;
 }
 
-.container__right .content {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.pageHeader {
+.infoBlock h2 {
     font-weight: 500;
     font-size: 2rem;
     color: #000000;
 }
 
-.pageHeader.extra {
+.infoBlock h3 {
     font-weight: 400;
     font-size: 1.25rem;
     color: #497D74;
-
-    margin-bottom: 1.25rem;
 }
 
 .infoBlock {
     width: 80%;
-    max-width: 22.5rem;
+    max-width: 26.25rem;
     
     display: flex;
     flex-direction: column;
@@ -67,7 +51,7 @@
 }
 
 .infoBlock.personal {
-    margin-bottom: .875rem;
+    margin-bottom: 1rem;
 }
 
 .inputLabel {
@@ -79,14 +63,12 @@
 }
 
 .input {
-    width: 100%;
     display: flex;
     padding: .875rem 1rem;
 
     background: rgba(230, 235, 240, 0.5);
     border: 1px solid #798C91;
     border-radius: .9375rem;
-    
 }
 
 .input::placeholder {
@@ -104,22 +86,45 @@
 }
 
 .input:focus::placeholder {
-    
     color: rgba(75, 100, 116, 0.5);
 }
 
 /* кнопка создания аккаунта */
+
+.createButton {
+    display: flex;
+    justify-content: center;
+    
+    min-width: 12.5rem;
+    width: 75%;
+    padding: .75rem;
+    margin: 0rem auto 1rem auto;
+
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #2F3337;
+
+    border-radius: .75rem;
+    background:
+    url('../../../static/img/texture.png'),
+    linear-gradient(
+        90.86deg, 
+        rgba(150, 200, 188, 0.4) 22.35%, 
+        rgba(73, 125, 116, 0.3) 81.97%);
+        background-blend-mode: plus-darker, normal;
+        backdrop-filter: blur(20px);
+}
 
 .createButton:before {
     content: '';
     position: absolute;
     inset: 0;
     z-index: -1;            /* наслоение по z */
-    padding: 1.2px;         /* толщина рамки */
+    padding: 2px;           /* толщина рамки */
     border-radius: .9375rem;
 
     background: 
-        linear-gradient(340deg, 
+    linear-gradient(340deg, 
         #000000 12.76%, 
         #ffffff 97.75%);
     mask:
@@ -127,42 +132,78 @@
         linear-gradient(#000 0 0) content-box;
 }
 
-.createButton {
-    background: 
-        linear-gradient(90.86deg, 
-        #788D92 22.35%, 
-        rgba(74, 99, 116, 0.7) 81.97%);
-    backdrop-filter: blur(20px);
-}
+/* состояния кнопки */
 
-.createButton {
-    margin-bottom: 1.25rem;
-
-    background:
-    url('../../../static/img/texture.png'),
-    linear-gradient(
-        90.86deg, 
-        rgba(150, 200, 188, 0.4) 22.35%, 
-        rgba(73, 125, 116, 0.3) 81.97%);
-    background-blend-mode: plus-darker, normal;
-    backdrop-filter: blur(20px);
-}
-
-.createButton:before {
-    padding: 2px;   /* толщина рамки */
-}
-
-.button:hover {
+button:hover {
     color: rgba(35, 35, 47, 0.9);
     background: rgba(119, 139, 145, 0.3);
 }
 
-.button:active {
+button:active {
     background: rgba(113, 187, 178, 0.8);
+}
+
+/* правая сторона формы */
+
+.container__right {
+    width: 40%;
+    display: flex;
+    border-radius: 0rem .9375rem .9375rem 0rem;
+
+    background: 
+        url("../../../static/img/main-img.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content {
+    width: 100%;
+    padding: 2.5rem;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    margin-bottom: 1.875rem;
+}
+
+.accountType h2 {
+    font-weight: 500;
+    font-size: 2.375rem;
+    color: #FFFFFF;
+}
+
+.accountType h3 {
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: #D1DDD9;
+}
+
+.radio {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.25rem;
+    gap: .75rem;
+}
+
+.radioContainer {
+    display: flex;
+    gap: 1.125rem;
+}
+
+.radioLabel {
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #FFFFFF;
 }
 
 .back-link {
     display: flex;
+    margin: 0rem auto 0rem auto;
+
     font-weight: 300;
     font-size: 1rem;
 
