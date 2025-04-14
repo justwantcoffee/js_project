@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/profilesettings.module.css';
+import styles from '../../styles/ProfileContent/profilesettings.module.css';
 import assets from '../../assets';
 
 const ProfileSettings = () => {

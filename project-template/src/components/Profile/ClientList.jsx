@@ -1,5 +1,5 @@
 import assets from '../../assets';
-import styles from '../../styles/card.module.css';
+import styles from '../../styles/Profile/card.module.css';
 
 const clients = [
   {

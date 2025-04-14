@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import ObjectCard from './ObjectCard';
-import styles from '../../../src/styles/offerlist.module.css';
+import styles from '../../../src/styles/ContentPage/offerlist.module.css';
 
 const OfferList = ({ offers = [], searchQuery = '' }) => {
   const filteredOffers = useMemo(() => {

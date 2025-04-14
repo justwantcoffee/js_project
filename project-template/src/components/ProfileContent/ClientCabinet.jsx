@@ -1,10 +1,19 @@
 import React from 'react';
+import { UserCard } from '../Profile/UserCard';
+import Published from '../Profile/Published';
+
+import styles from '../../styles/Profile/profile.module.css';
 
 const ClientCabinet = () => {
   return (
-    <div>
-      <h1>Личный кабинет клиента</h1>
+    <div className={styles.cards}>
+      {/* личный кабинет клиента */}
       {/* Избранное, объекты к сравнению, ранее просмотренное */}
+
+      <UserCard />
+      <Published />
+
+      
     </div>
   );
 };
