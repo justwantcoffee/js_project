@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from '../Main/Header';
 import Footer from '../Main/Footer';
 
-import Banner from './Banner';
+import Hero from './Hero';
 import Offers from './Offers';
 import Filters from "../ContentPage/Filters";
 
@@ -32,7 +32,7 @@ const HomePage = () => {
       <div className={styles.main}>
         <Header setSearchQuery={setSearchQuery} />
         <AuthDetails />
-        <Banner />
+        <Hero />
         
         <div className={styles.content}>
           

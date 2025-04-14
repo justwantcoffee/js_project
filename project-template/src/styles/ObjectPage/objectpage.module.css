@@ -1,0 +1,20 @@
+/* оформление страницы */
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-image: url('/src/assets/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .main {
+    margin: auto;
+    padding: 3.75rem;
+    max-width: 80rem;
+  }
+  
+  /* конец оформления */ 

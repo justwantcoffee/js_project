@@ -10,12 +10,13 @@ const images = [
   assets.offerImg1,
   assets.offerImg1,
 ];
+
 const ObjectCard = ({ header, color, underground, time, img, price }) => {
   return (
     <div className={styles.card}>
       <div className="cardMain">
       <div className={styles.cardTop}>
-        <h3 className={styles.header}>{header}</h3>
+        <h3 className={styles.header}><a href="/apartment">{header}</a></h3>
         <button>
           <img src={assets.more} alt="" />
         </button>

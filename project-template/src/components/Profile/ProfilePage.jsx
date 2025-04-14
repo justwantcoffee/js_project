@@ -4,7 +4,6 @@ import Footer from '../Main/Footer';
 import { auth } from "../../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
-
 import ProfileSettings from '../ProfileContent/ProfileSettings';
 import ClientCabinet from '../ProfileContent/ClientCabinet';
 import LandlordCabinet from '../ProfileContent/LandlordCabinet';

@@ -81,6 +81,7 @@ const Offers = ({ searchQuery = '', filters }) => {
   return (
     <div className={styles.offers}>
       <h2 className={styles.header}>NEW Buildings</h2>
+      <hr className={styles.hr}/>
 
       <div className={styles.content}>
         <OfferList offers={filteredOffers} />

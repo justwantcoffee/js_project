@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
 import ContentPage from './components/ContentPage/ContentPage';
+import ObjectPage from './components/ObjectPage/ObjectPage';
+
 import ClientCabinet from './components/ProfileContent/ClientCabinet';
 import LandlordCabinet from './components/ProfileContent/LandlordCabinet';
 import AdminCabinet from './components/ProfileContent/AdminCabinet';
@@ -15,6 +17,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/content" element={<ContentPage />} />
+        <Route path="/apartment" element={<ObjectPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Signup />} />
         <Route path="/cabinet/client" element={<ClientCabinet />} />
