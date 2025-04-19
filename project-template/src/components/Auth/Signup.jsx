@@ -1,54 +1,71 @@
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from "../../firebase";
+import { useNavigate } from 'react-router-dom'; 
 
 import Logo from '../Main/Logo';
 import styles from '../../styles/Auth/signup.module.css';
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [copypassword, setCopyPassword] = useState("");
   const [error, setError] = useState("");
-  const[accountType, setAccountType] = useState("");
+  const [accountType, setAccountType] = useState("");
 
   function register(e) {
     e.preventDefault();
 
-    /* проверка что пароль и копия пароля совпадает */
     if(copypassword !== password) {
-      setError("Passwords don't match, try again please")
-      return
+      setError("Passwords don't match, try again please");
+      return;
     }
 
     createUserWithEmailAndPassword(auth, email, password)
-      .then ((user) => {
-        /* при успешном создании аккаунта очищаем поля */
-        console.log('пользователь успешно создан');
+      .then((userCredential) => {
+        const user = userCredential.user;
+        
+        return updateProfile(user, { 
+          displayName: `${accountType}|${firstname}|${lastname}`
+        });
+      })
+      .then(() => {
+        // Получаем тип аккаунта из displayName
+        const [type] = auth.currentUser.displayName.split('|');
+        
+        // Маппинг типов аккаунтов на URL
+        const routes = {
+          sel: '/sailer',  // 'sel' → '/sailer'
+          cus: '/cabinet/client', // как кабинеты для клиента готовы будут, замените
+          adm: '/cabinet/admin' // тоже самое
+        };
 
+        if (!routes[type]) {
+          throw new Error('Unknown account type');
+        }
+
+        navigate(routes[type]);
+        
+        // Очистка полей
         setError("");
         setFirstname("");
         setLastname("");
         setEmail("");
         setPassword("");
         setCopyPassword("");
-
-        /* обновляем имя пользователя, внося тип аккаунта */
-        updateProfile(auth.currentUser, {displayName: `${accountType}|${firstname}|${lastname}`})
       })
-      .catch((error)=>console.log(error));
+      .catch((error) => {
+        console.error(error);
+        setError(error.message || "Error creating account");
+      });
   };
-
-  {/* ставим тип аккаунта */}
-
 
   return (
     <div>
-
-        {/* форма регистрации */}
-        <form onSubmit={register} className={styles.container}>
+      <form onSubmit={register} className={styles.container}>
         
         {/* левая половина формы */}
         <div className={styles.containerLeft}>
