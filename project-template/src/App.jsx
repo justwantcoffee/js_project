@@ -9,7 +9,7 @@ import LandlordCabinet from './components/ProfileContent/LandlordCabinet';
 import AdminCabinet from './components/ProfileContent/AdminCabinet';
 import Login from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
-import { Sailer } from './components/Profile/ProfilePage';
+import Profile from './components/Profile/ProfilePage';
 
 const App = () => {
   return (
@@ -23,7 +23,7 @@ const App = () => {
         <Route path="/cabinet/client" element={<ClientCabinet />} />
         <Route path="/cabinet/landlord" element={<LandlordCabinet />} />
         <Route path="/cabinet/admin" element={<AdminCabinet />} />
-        <Route path="/sailer" element={<Sailer />} />
+        <Route path="/sailer" element={<Profile />} />
       </Routes>
     </Router>
   );

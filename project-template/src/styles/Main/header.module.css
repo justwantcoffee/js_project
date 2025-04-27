@@ -94,3 +94,8 @@
 
   color: #000000;
 }
+
+.profileinfo {
+  display: flex;
+  gap: .875rem;
+}

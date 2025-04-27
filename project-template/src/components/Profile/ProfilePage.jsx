@@ -11,7 +11,7 @@ import AdminCabinet from '../ProfileContent/AdminCabinet';
 
 import styles from '../../styles/Profile/profile.module.css';
 
-export const Sailer = () => {
+export const Profile = () => {
   const [activeTab, setActiveTab] = useState('cabinet'); // 'cabinet' или 'settings'
   const [accountType, setAccountType] = useState('sel'); // 'cus', 'sel' или 'adm'
   
@@ -65,3 +65,5 @@ export const Sailer = () => {
     </div>
   );
 };
+
+export default Profile;

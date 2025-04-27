@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import assets from '../../assets';
 import { useNavigate } from 'react-router-dom';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 
 import styles from '../../styles/Main/header.module.css';
 
 const Header = ({ setSearchQuery }) => { 
   const navigate = useNavigate();
   const auth = getAuth();
+  const [loggeduser, setLoggedUser] = useState('');
   const [localQuery, setLocalQuery] = useState('');
 
   function logInChecker() {
@@ -33,6 +34,28 @@ const Header = ({ setSearchQuery }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
+
+  useEffect(() => {
+      const listen = onAuthStateChanged(auth, (user) => {
+          if (user) {
+            setLoggedUser(user);
+          } 
+          else {
+            setLoggedUser(null);
+          }
+      });
+
+      return () => {
+          listen()
+      }
+  })
+  
+  function userSignOut() {
+      signOut(auth)
+          .then(() => navigate('/'))
+          .catch((e) => console.log(e))
+  }
 
   return (
     <div className={styles.header}>
@@ -62,19 +85,30 @@ const Header = ({ setSearchQuery }) => {
         <a className={styles.button} href="#">
           New buildings
         </a>
-        <a className={styles.button} href="#">
-          Realtors
-        </a>
 
-        <button onClick={logInChecker}>
-          <img
-            src={assets.home}
-            width="20px"
-            height="20px"
-            alt="профиль"
-          />
+        <div className={styles.profileinfo}>
+        {loggeduser !== null && (
+          <>
+            <button onClick={userSignOut}>
+              <img 
+                src={assets.signout}
+                width="24px"
+                height="24px"
+                alt="выйти" 
+              />
+            </button>
+          </>
+        )}
+
+          <button onClick={logInChecker}>
+            <img
+              src={assets.home}
+              width="24px"
+              height="24px"
+              alt="профиль"
+            />
         </button>
-
+        </div>
       </div>
     </div>
   );
