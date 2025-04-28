@@ -45,13 +45,23 @@ const ObjectPage = ({ header, color, underground, time, img, price }) => {
                     <dt className={styles.pointName}>Парковка:</dt>
                     <dd className={styles.pointValue}>Подземная</dd>
                   </div>
+
+                  <div className={styles.point}>
+                    <dt className={styles.pointName}>Отделка:</dt>
+                    <dd className={styles.pointValue}>Без отделки, предчистовая, чистовая</dd>
+                  </div>
+
+                  <div className={styles.point}>
+                    <dt className={styles.pointName}>Тип комплекса:</dt>
+                    <dd className={styles.pointValue}>Жилой комплекс</dd>
+                  </div>
                 </dl>
               </div>
 
               {/* цена и контакты */}
               <div className={styles.price}>
-                <h3 className={styles.header}>2`905 $</h3>
-                <span>Total</span>
+                <h3 className={styles.header}>2’905 $ / m² </h3>
+                <span className={styles.total}>89`116$ Total</span>
                 <button className={styles.contacts}>Contacts</button>
               </div>
             </div>
