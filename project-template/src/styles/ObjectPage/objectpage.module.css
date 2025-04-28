@@ -18,3 +18,110 @@
   }
   
   /* конец оформления */ 
+
+/* верхний блок карточки - заголовок & фото */ 
+
+.maincard {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem;
+
+  background: 
+    linear-gradient(163.8deg, 
+    rgba(255, 255, 255, 0.35) 7.91%, 
+    rgba(255, 255, 255, 0.7) 94.94%);
+    
+  box-shadow: 3px 3px 1.25rem rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(1.25rem);
+  border-radius: .75rem;
+}
+
+.header {
+  font-weight: 400;
+  font-size: 2.25rem;
+  color: #000000;
+  margin-bottom: .5rem;
+}
+
+.description {
+  display: flex;
+  gap: 2rem;
+
+  font-weight: 400;
+  font-size: 1.125rem;
+  color: #000000;
+
+  padding-bottom: 1rem;
+}
+
+.time {
+  display: flex;
+  gap: .875rem;
+}
+
+.mainPhoto {
+  display: flex;
+  width: 50%;
+  aspect-ratio: 16/9;
+
+  border-radius: .75rem;
+  background-color: antiquewhite;
+}
+
+/* основная информация об объекте */ 
+
+.extra {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about {
+  box-sizing: border-box;
+  width: 40%;
+  padding: 1.25rem;
+}
+
+.about .header {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.charList {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.point {
+  width: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* цена & контакты */ 
+
+.price {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+.price .header {
+  font-size: 1.5rem;
+}
+
+.contacts {
+  width: 60%;
+  min-width: 12.5rem;
+  padding: .75rem;
+  border-radius: .75rem;
+  
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: #000000;
+  
+  border: #000000 1px solid;
+  background-color: rgba(39, 68, 93, 0.5);
+}
