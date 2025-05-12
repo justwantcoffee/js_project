@@ -85,6 +85,9 @@ const Header = ({ setSearchQuery }) => {
         <a className={styles.button} href="#">
           New buildings
         </a>
+        <a className={styles.button} href="/realtors">
+          Realtors
+        </a>
 
         <div className={styles.profileinfo}>
         {loggeduser !== null && (
