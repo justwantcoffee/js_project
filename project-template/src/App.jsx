@@ -10,6 +10,7 @@ import AdminCabinet from './components/ProfileContent/AdminCabinet';
 import Login from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
 import Profile from './components/Profile/ProfilePage';
+import RealtorsPage from './components/RealtorsPage/RealtorsPage';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/cabinet/landlord" element={<LandlordCabinet />} />
         <Route path="/cabinet/admin" element={<AdminCabinet />} />
         <Route path="/sailer" element={<Profile />} />
+        <Route path="/realtors" element={<RealtorsPage />} />
       </Routes>
     </Router>
   );
