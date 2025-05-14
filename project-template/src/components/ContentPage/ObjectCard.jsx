@@ -1,38 +1,51 @@
 import React from 'react';
 import assets from '../../assets';
 import ImageSwiper from '../Profile/ImageSwiper';
+import { Link } from 'react-router-dom';
 
 import styles from '../../styles/ContentPage/objectcard.module.css';
 
-const images = [
-  assets.offerImg1,
-  assets.offerImg1,
-  assets.offerImg1,
-  assets.offerImg1,
-];
+const ObjectCard = ({ apartment }) => {
 
-const ObjectCard = ({ header, color, underground, time, img, price }) => {
+  const images = [
+  assets[`offerImg${apartment.id}`],
+  assets[`offerImg${apartment.id}`],
+  assets[`offerImg${apartment.id}`],
+  assets[`offerImg${apartment.id}`],
+  ];
+
+
+  if (!apartment) return null; 
+
   return (
     <div className={styles.card}>
       <div className="cardMain">
       <div className={styles.cardTop}>
-        <h3 className={styles.header}><a href="/apartment">{header}</a></h3>
+
+        {/* переход на стр. объекта по заголовку */}
+
+        <Link 
+          to={`/apartment/${apartment.id}`} 
+          state={{ apartment }}>
+          <h3 className={styles.header}><a href="/apartment">{apartment.header}</a></h3>
+        </Link>   
+
         <button>
           <img src={assets.more} alt="" />
         </button>
       </div>
       <div className={styles.description}>
-          <span className={styles.descriptionUnderground} style={{"--color": color}}>{underground}</span>
+          <span className={styles.descriptionUnderground} style={{"--color": apartment.color}}>{apartment.underground}</span>
           <span className={styles.descriptionTime}>
-            <img src={assets.directionsWalk} alt="" />{time}
+            <img src={assets.directionsWalk} alt="" />{apartment.time}
           </span>
         </div>
       </div>
-      
       <div className={styles.cardBottom}>
         <ImageSwiper images={images} />
-        <p className={styles.price}>{price}</p>
+        <p className={styles.price}>{apartment.priceText}</p>
       </div>
+      
     </div>
   );
 };
