@@ -17,11 +17,8 @@ const OfferList = ({ offers = [], searchQuery = '' }) => {
         filteredOffers.map((offer) => (
           <ObjectCard
             key={offer.id}
-            header={offer.header}
-            underground={offer.underground}
-            time={offer.time}
-            img={offer.img}
-            price={offer.priceText}
+            apartment={offer} 
+            // передаём весь объект
           />
         ))
       ) : (

@@ -5,20 +5,12 @@
     padding: 0;
   }
   
-  body {
-    background-image: url('/src/assets/background.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
   .main {
     margin: auto;
     padding: 3.75rem;
     max-width: 80rem;
   }
   
-  /* конец оформления */ 
-
 /* верхний блок карточки - заголовок & фото */ 
 
 .maincard {
@@ -69,7 +61,7 @@
   background-color: antiquewhite;
 }
 
-/* основная информация об объекте */ 
+/* список информации об объекте */ 
 
 .extra {
   display: flex;
@@ -105,12 +97,25 @@
   color: #000000;
 }
 
+
 .pointValue {
   max-width: 60%;
   font-style: italic;
   font-weight: 500;
   font-size: 1rem;
   text-align: right;
+}
+
+/* изменение списка */
+
+@media (max-width: 1000px) { 
+  .point {
+    display: block;
+  }
+
+  .pointValue {
+    text-align: left;
+  }
 }
 
 /* цена & контакты */ 
