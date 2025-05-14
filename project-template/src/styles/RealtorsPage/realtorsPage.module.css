@@ -1,0 +1,33 @@
+.realtorsPage {
+  padding: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.realtorsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.realtorCard {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.name {
+  margin: 0 0 0.5rem 0;
+}
+
+.info {
+  margin: 0.25rem 0;
+}
+
+.empty {
+  font-style: italic;
+}
