@@ -5,6 +5,7 @@ import 'swiper/css'; // Swiper'ning asosiy stil fayllari
 import 'swiper/css/free-mode'; // FreeMode uchun qo'shimcha uslublar
 import assets from '../../assets';
 import ObjectCard from '../ContentPage/ObjectCard';
+import OfferList from '../ContentPage/OfferList';
 
 import styles from '../../styles/Profile/card.module.css';
 
@@ -21,42 +22,6 @@ export const Published = () => {
         spaceBetween={10} // Slide'lar orasidagi masofa (px)
         className={styles.swiperContainer} // Agar kerak bo'lsa, maxsus klass qo'shish
       >
-        <SwiperSlide>
-          <ObjectCard
-            header="Matveevsky park"
-            underground="Amin’evskaya"
-            time="3 min"
-            img={assets.offerImg1}
-            price="From 87’116 $"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ObjectCard
-            header="Matveevsky park"
-            underground="Amin’evskaya"
-            time="3 min"
-            img={assets.offerImg1}
-            price="From 87’116 $"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ObjectCard
-            header="Matveevsky park"
-            underground="Amin’evskaya"
-            time="3 min"
-            img={assets.offerImg1}
-            price="From 87’116 $"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ObjectCard
-            header="Matveevsky park"
-            underground="Amin’evskaya"
-            time="3 min"
-            img={assets.offerImg1}
-            price="From 87’116 $"
-          />
-        </SwiperSlide>
       </Swiper>
     </div>
   );
