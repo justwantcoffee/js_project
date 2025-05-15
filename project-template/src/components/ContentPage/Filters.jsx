@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase"; // путь к файлу firebase.js
 import styles from "../../styles/ContentPage/filters.module.css";
 
 const Filters = ({ filters = {}, onApply, visible }) => {
   const [localFilters, setLocalFilters] = useState({
     businessType: filters.businessType || "buy",
-    realEstateType: filters.realEstateType || "single-family",
+    realEstateType: filters.realEstateType || null,
     rooms: filters.rooms || null,
     priceType: filters.priceType || "object",
     priceFrom: filters.priceFrom || "",
@@ -14,10 +16,23 @@ const Filters = ({ filters = {}, onApply, visible }) => {
     kitchenSize: filters.kitchenSize || null,
   });
 
+  const [offers, setOffers] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Сбрасываем локальные фильтры к ранее применённым при открытии
+  useEffect(() => {
+    const fetchOffers = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "apartments"));
+        const data = querySnapshot.docs.map((doc) => doc.data());
+        setOffers(data);
+      } catch (error) {
+        console.error("Ошибка загрузки офферов:", error);
+      }
+    };
+    fetchOffers();
+  }, []);
+
   useEffect(() => {
     if (visible) {
       setLocalFilters(filters);
@@ -36,10 +51,27 @@ const Filters = ({ filters = {}, onApply, visible }) => {
     };
   }, []);
 
-  const realEstateOptions = [
-    { value: "single-family", label: "Single-family home" },
-    { value: "apartment", label: "Apartment" },
-    { value: "townhouse", label: "Townhouse" },
+  const getUniqueSorted = (key) =>
+    Array.from(new Set(offers.map((o) => o[key]))).filter(Boolean).sort();
+
+  const realEstateOptions = getUniqueSorted("realEstateType").map((value) => ({
+    value,
+    label: value.charAt(0).toUpperCase() + value.slice(1).replace("-", " "),
+  }));
+
+  const roomOptions = getUniqueSorted("rooms");
+  const kitchenOptions = getUniqueSorted("kitchenArea");
+
+  const PRICE_TYPES = {
+    Object: "object",
+    KM2: "km2",
+    Mortgage: "mortgage",
+  };
+
+  const priceButtons = [
+    { label: "For the object", value: PRICE_TYPES.Object },
+    { label: "For km²", value: PRICE_TYPES.KM2 },
+    { label: "Mortgage", value: PRICE_TYPES.Mortgage },
   ];
 
   const handleToggle = (key, value) => {
@@ -61,21 +93,8 @@ const Filters = ({ filters = {}, onApply, visible }) => {
     setDropdownOpen(false);
   };
 
-  const PRICE_TYPES = {
-    Object: 'object',
-    KM2: 'km2',
-    Mortgage: 'mortgage',
-  }
-
-  const priceButtons = [
-    { label: "For the object", value: PRICE_TYPES.Object },
-    { label: "For km²", value: PRICE_TYPES.KM2 },
-    { label: "Mortgage", value: PRICE_TYPES.Mortgage },
-  ];
-
   return (
     <div className={styles.filters}>
-      
       {/* Тип бизнеса */}
       <div className={styles.filterRow}>
         <label className={styles.filterLabel}>Type of Business</label>
@@ -105,7 +124,7 @@ const Filters = ({ filters = {}, onApply, visible }) => {
           >
             {realEstateOptions.find(
               (opt) => opt.value === localFilters.realEstateType
-            )?.label}
+            )?.label || "Select type"}
           </button>
           {dropdownOpen && (
             <ul className={styles.dropdownMenu}>
@@ -127,7 +146,7 @@ const Filters = ({ filters = {}, onApply, visible }) => {
       <div className={styles.filterRow}>
         <label className={styles.filterLabel}>Amount of rooms</label>
         <div className={styles.toggleGroup}>
-          {["Studio", "1", "2", "3", "4"].map((room) => (
+          {roomOptions.map((room) => (
             <button
               key={room}
               className={localFilters.rooms === room ? styles.active : ""}
@@ -144,18 +163,18 @@ const Filters = ({ filters = {}, onApply, visible }) => {
         <label className={styles.filterLabel}>Price</label>
         <div className={styles.toggleGroup}>
           {priceButtons.map(({ label, value }) => (
-          <button
-            key={value}
-            className={localFilters.priceType === value ? styles.active : ""}
-            onClick={() => handleToggle("priceType", value)}
-          >
-            {label}
-          </button>
-    ))}
+            <button
+              key={value}
+              className={localFilters.priceType === value ? styles.active : ""}
+              onClick={() => handleToggle("priceType", value)}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
 
-      {/* Общая площадь (Total area) */}
+      {/* Общая площадь */}
       <div className={styles.filterRow}>
         <label className={styles.filterLabel}>Total area</label>
         <div className={styles.rangeGroup}>
@@ -178,17 +197,17 @@ const Filters = ({ filters = {}, onApply, visible }) => {
               placeholder="Up to"
               value={localFilters.areaTo || ""}
               onChange={handleInputChange}
-              />
+            />
             <span>m²</span>
           </div>
         </div>
       </div>
 
-      {/* Площадь кухни (Kitchen area) */}
+      {/* Площадь кухни */}
       <div className={styles.filterRow}>
         <label className={styles.filterLabel}>Kitchen Area</label>
         <div className={styles.kitchenSizeRow}>
-          {[6, 7, 8, 9, 10, 12, 15].map((size) => (
+          {kitchenOptions.map((size) => (
             <button
               key={size}
               className={localFilters.kitchenSize === size ? styles.active : ""}
