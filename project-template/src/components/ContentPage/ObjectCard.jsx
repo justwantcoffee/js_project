@@ -8,10 +8,10 @@ import styles from '../../styles/ContentPage/objectcard.module.css';
 const ObjectCard = ({ apartment }) => {
 
   const images = [
-  assets[`offerImg${apartment.id}`],
-  assets[`offerImg${apartment.id}`],
-  assets[`offerImg${apartment.id}`],
-  assets[`offerImg${apartment.id}`],
+    assets[`offerImg${apartment.id}`],
+    assets[`offerImg${apartment.id}`],
+    assets[`offerImg${apartment.id}`],
+    assets[`offerImg${apartment.id}`],
   ];
 
 
