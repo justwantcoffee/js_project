@@ -11,7 +11,7 @@ import Login from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
 import Profile from './components/Profile/ProfilePage';
 import RealtorsPage from './components/RealtorsPage/RealtorsPage';
-
+import AddApartment from "./components/Profile/AddApartment";
 const App = () => {
   return (
     <Router>
@@ -26,6 +26,7 @@ const App = () => {
         <Route path="/cabinet/admin" element={<AdminCabinet />} />
         <Route path="/sailer" element={<Profile />} />
         <Route path="/realtors" element={<RealtorsPage />} />
+        <Route path="/add-apartment" element={<AddApartment />} />
       </Routes>
     </Router>
   );
